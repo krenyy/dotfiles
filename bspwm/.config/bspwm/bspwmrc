@@ -1,0 +1,100 @@
+#! /bin/sh
+
+bspc monitor -d web chat code music media gaming graphics term
+bspc config window_gap          38
+
+bspc config border_width         0
+bspc config normal_border_color "#0d0f21"
+bspc config focused_border_color "#bdaaa7"
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+################
+# WINDOW RULES #
+################
+
+# Browsers
+bspc rule -a Vivaldi-stable desktop=web
+bspc rule -a Brave-browser desktop=web
+
+# Chat clients
+bspc rule -a discord desktop=chat
+
+# IDE
+bspc rule -a code-oss desktop=code
+
+# Music players
+bspc rule -a Spotify desktop=music
+
+# Multimedia players
+bspc rule -a Kodi desktop=media
+
+# Gaming stuff
+bspc rule -a Virt-manager desktop=gaming state=floating
+
+# Graphics programs
+# Nothing yet
+
+# Other rules
+bspc rule -a "Kvantum Manager" state=floating
+bspc rule -a studentui state=floating
+
+
+
+#########################
+# POINTER CONFIGURATION #
+#########################
+
+bspc config pointer_action1 move
+bspc config pointer_action2 none
+bspc config pointer_action3 resize_corner
+
+# Make moving floating windows smooth
+bspc config pointer_motion_interval 1ms
+
+
+# ------------------------------------------------------------------------------------------------------------------------
+
+
+#######################################
+# Kill services to prevent duplicates #
+#######################################
+
+killall -9 sxhkd dunst picom polybar unclutter xidlehook
+
+
+###################
+# Launch services #
+###################
+
+sxhkd &                    # Shortcuts
+polybar main &             # Top bar
+picom -b                   # Compositor
+dunst &                    # Notifications
+unclutter --timeout 2 &    # Hide cursor after 2 seconds
+
+# Autolock and autosusped after certain time
+xidlehook --not-when-audio --timer 300 $HOME/scripts/i3lock.sh '' &
+
+
+##################
+# AUTOSTART APPS #
+##################
+
+
+startup_lock_file=/tmp/bspwm-startup.lock
+
+if [ ! -f $startup_lock_file ]; then
+    touch $startup_lock_file
+
+    vivaldi-stable &
+    discord &
+    spotify &
+
+
+    sleep 1 && ~/i3lock.sh &  # Lock the screen after startup
+fi
+
+bash /home/kreny/.config/bspwm/bspwm_colors.sh &

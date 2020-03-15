@@ -1,0 +1,211 @@
+[bar/main]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 20
+offset-y = 0
+offset-x = 0
+
+border-top-size = 5
+border-bottom-size = 0
+border-right-size = 5
+border-left-size = 5
+
+margin-bottom = 0
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = false
+monitor = 
+wm-restack = bspwm
+override-redirect = false
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = Roboto:Medium:size=12;1
+font-1 = Font Awesome 5 Pro:style=Solid:size=12;1
+
+;--------;
+; COLORS ;
+;--------;
+
+background = 0
+foreground = #8a645f
+border-color = 0
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2
+padding-right = 2
+module-margin = 4
+
+modules-left = cputemp cpu memory network corona
+modules-center = bspwm
+modules-right = pulseaudio weather date time
+
+tray-position = none
+tray-detached = true
+
+
+
+;---------;
+; MODULES ;
+;---------;
+
+
+
+[module/corona]
+type = custom/script
+interval = 3600
+
+exec = python ~/.config/polybar/modules/corona.py
+exec-if = ping worldometers.info -c 1
+
+
+
+[module/cpuclock]
+type = custom/script
+interval = 2
+
+exec = ~/.config/polybar/modules/cpuclock.sh
+
+
+
+[module/weather]
+type = custom/script
+interval = 600
+
+exec = ~/.config/polybar/modules/forecast.py
+exec-if = ping openweathermap.org -c 1
+
+
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = true
+
+label-unfocused-foreground = #afafaf
+label-focused-foreground = #e5e5e5
+label-urgent-foreground = #ff0000
+
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = code;
+ws-icon-3 = chat;
+ws-icon-4 = music;
+ws-icon-5 = media;
+ws-icon-6 = gaming;
+ws-icon-7 = graphics;
+
+label-focused = %icon%
+label-occupied = %icon%
+label-urgent = %icon%
+label-empty = %icon%
+
+label-separator = "   "
+label-separator-padding = 0
+
+
+
+[module/time]
+type = internal/date
+
+interval = 1.0
+
+date =  %H:%M
+
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = false
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  0%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+
+
+[module/date]
+type = internal/date
+
+date =  %A - %e %B
+label = %date%
+
+
+
+[module/cputemp]
+type = internal/temperature
+
+interval = 2
+
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+
+base-temperature = 30
+warn-temperature = 70
+
+units = true
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #ffa500
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format =  <label>
+
+
+
+[module/memory]
+type = custom/script
+interval = 2
+
+exec = free --mebi | grep Mem | awk '{printf " %0.2f GiB", ($3+$5)/1024}'
+
+;format =  <label>
+;label = %gb_used%
+
+
+
+[module/network]
+type = internal/network
+interval = 3
+
+interface = enp0s31f6
+
+label-connected =  %local_ip%
+label-disconnected =  Disconnected
+
