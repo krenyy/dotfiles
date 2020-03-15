@@ -69,7 +69,6 @@ type = custom/script
 interval = 3600
 
 exec = python ~/.config/polybar/modules/corona.py
-exec-if = ping worldometers.info -c 1
 
 
 
