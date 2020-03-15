@@ -96,8 +96,9 @@ pin-workspaces = true
 strip-wsnumbers = true
 enable-scroll = true
 
-label-unfocused-foreground = #afafaf
 label-focused-foreground = #e5e5e5
+label-occupied-foreground = #8a645f
+label-empty-foreground = #3a4861
 label-urgent-foreground = #ff0000
 
 ws-icon-0 = term;
