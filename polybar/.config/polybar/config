@@ -66,7 +66,7 @@ tray-detached = true
 
 [module/corona]
 type = custom/script
-interval = 3600
+interval = 300
 
 exec = python ~/.config/polybar/modules/corona.py
 
@@ -82,7 +82,7 @@ exec = ~/.config/polybar/modules/cpuclock.sh
 
 [module/weather]
 type = custom/script
-interval = 600
+interval = 300
 
 exec = ~/.config/polybar/modules/forecast.py
 exec-if = ping openweathermap.org -c 1

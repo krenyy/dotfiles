@@ -35,7 +35,7 @@ bspc rule -a Kodi desktop=media
 bspc rule -a Virt-manager desktop=gaming state=floating
 
 # Graphics programs
-# Nothing yet
+bspc rule -a Blender desktop=graphics
 
 # Other rules
 bspc rule -a "Kvantum Manager" state=floating
