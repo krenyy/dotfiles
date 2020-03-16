@@ -55,14 +55,14 @@ bspc config pointer_action3 resize_corner
 bspc config pointer_motion_interval 1ms
 
 
-# ------------------------------------------------------------------------------------------------------------------------
+# --------------------
 
 
 #######################################
 # Kill services to prevent duplicates #
 #######################################
 
-killall -9 sxhkd dunst picom polybar unclutter xidlehook
+killall -9 sxhkd dunst picom flashfocus polybar unclutter xidlehook
 
 
 ###################
@@ -72,6 +72,7 @@ killall -9 sxhkd dunst picom polybar unclutter xidlehook
 sxhkd &                    # Shortcuts
 polybar main &             # Top bar
 picom -b                   # Compositor
+flashfocus &               # Flash on focus change
 dunst &                    # Notifications
 unclutter --timeout 2 &    # Hide cursor after 2 seconds
 
