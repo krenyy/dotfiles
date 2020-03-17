@@ -95,7 +95,7 @@ if [ ! -f $startup_lock_file ]; then
     spotify &
 
 
-    sleep 1 && ~/i3lock.sh &  # Lock the screen after startup
+    sleep 1 && $HOME/scripts/i3lock.sh &  # Lock the screen after startup
 fi
 
 bash /home/kreny/.config/bspwm/bspwm_colors.sh &
