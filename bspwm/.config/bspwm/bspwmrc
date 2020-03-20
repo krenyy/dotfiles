@@ -1,11 +1,9 @@
 #! /bin/sh
 
 bspc monitor -d web chat code music media gaming graphics term
-bspc config window_gap          38
 
-bspc config border_width         0
-bspc config normal_border_color "#0d0f21"
-bspc config focused_border_color "#bdaaa7"
+bspc config window_gap          24
+bspc config border_width         1
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -62,7 +60,7 @@ bspc config pointer_motion_interval 1ms
 # Kill services to prevent duplicates #
 #######################################
 
-killall -9 sxhkd dunst picom flashfocus polybar unclutter xidlehook
+killall -9 sxhkd dunst picom polybar unclutter xidlehook
 
 
 ###################
@@ -72,7 +70,6 @@ killall -9 sxhkd dunst picom flashfocus polybar unclutter xidlehook
 sxhkd &                    # Shortcuts
 polybar main &             # Top bar
 picom -b                   # Compositor
-flashfocus &               # Flash on focus change
 dunst &                    # Notifications
 unclutter --timeout 2 &    # Hide cursor after 2 seconds
 
@@ -95,7 +92,7 @@ if [ ! -f $startup_lock_file ]; then
     spotify &
 
 
-    sleep 1 && $HOME/scripts/i3lock.sh &  # Lock the screen after startup
+    sleep 3 && $HOME/scripts/i3lock.sh &  # Lock the screen after startup
 fi
 
 bash /home/kreny/.config/bspwm/bspwm_colors.sh &

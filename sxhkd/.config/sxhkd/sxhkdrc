@@ -10,6 +10,14 @@ super + Return
 super + space
 	rofi -show run
 
+# emojis (rofimoji)
+super + e
+	rofimoji
+
+# calculator (rofi-calc)
+super + z
+	rofi -modi calc -show calc -no-show-match -no-sort
+
 # clipboard manager (rofi-greenclip)
 super + v
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
@@ -25,6 +33,13 @@ super + alt + z
 # change keyboard layout
 alt + shift + {e, c}
 	setxkbmap {us, cz}
+
+# print to clipboard
+shift + Print
+	import -window root png:- | xclip -selection clipboard -t image/png
+
+Print
+	import png:- | xclip -selection clipboard -t image/png
 
 
 #
