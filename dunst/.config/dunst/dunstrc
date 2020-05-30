@@ -18,7 +18,7 @@
     horizontal_padding = 12
     frame_width = 0
 
-    frame_color = "#492d4e"
+    frame_color = "#4f374b"
     separator_color = auto
     sort = yes
     idle_threshold = 120

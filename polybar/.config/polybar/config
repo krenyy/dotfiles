@@ -1,3 +1,6 @@
+[settings]
+pseudo-transparency = true
+
 [bar/main]
 
 ;------------;
@@ -5,7 +8,7 @@
 ;------------;
 
 width = 100%
-height = 20
+height = 22
 offset-y = 0
 offset-x = 0
 
@@ -29,8 +32,8 @@ override-redirect = false
 ; FONTS ;
 ;-------;
 
-font-0 = Roboto:Medium:size=12;1
-font-1 = Font Awesome 5 Pro:style=Solid:size=12;1
+font-0 = Fira Code Retina:size=11;1
+font-1 = Font Awesome 5 Pro:style=Solid:size=11;1
 
 ;--------;
 ; COLORS ;
@@ -45,17 +48,18 @@ border-color = 0
 ;---------------;
 
 fixed-center = true
-padding-left = 2
-padding-right = 2
-module-margin = 4
+padding-left = 1
+padding-right = 1
+module-margin = 2
 
-modules-left = cputemp cpu memory network corona
+modules-left = cputemp cpu memory network
 modules-center = bspwm
-modules-right = pulseaudio weather date time
+modules-right = xkbd pulseaudio weather date time
 
 tray-position = none
 tray-detached = true
 
+locale = cs_CZ.UTF8
 
 
 ;---------;
@@ -64,19 +68,16 @@ tray-detached = true
 
 
 
-[module/corona]
-type = custom/script
-interval = 300
-
-exec = python ~/.config/polybar/modules/corona.py
-
-
-
 [module/cpuclock]
 type = custom/script
 interval = 2
 
 exec = ~/.config/polybar/modules/cpuclock.sh
+
+
+
+[module/xkbd]
+type = internal/xkeyboard
 
 
 
@@ -115,7 +116,7 @@ label-occupied = %icon%
 label-urgent = %icon%
 label-empty = %icon%
 
-label-separator = "   "
+label-separator = "  "
 label-separator-padding = 0
 
 
@@ -149,7 +150,7 @@ ramp-volume-3 = 
 [module/date]
 type = internal/date
 
-date =  %A - %e %B
+date =  %A %e. %B %Y
 label = %date%
 
 
@@ -195,6 +196,7 @@ interval = 2
 
 exec = free --mebi | grep Mem | awk '{printf " %0.2f GiB", ($3+$5)/1024}'
 
+;type = internal/memory
 ;format =  <label>
 ;label = %gb_used%
 
@@ -204,8 +206,8 @@ exec = free --mebi | grep Mem | awk '{printf " %0.2f GiB", ($3+$5)/1024}'
 type = internal/network
 interval = 3
 
-interface = enp0s31f6
+interface = br0
 
-label-connected =  %local_ip%
+label-connected =  
 label-disconnected =  Disconnected
 

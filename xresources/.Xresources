@@ -1,9 +1,0 @@
-!--------------!
-! URXVT CONFIG !
-!--------------!
-
-URxvt.internalBorder:	30
-URxvt.scrollBar:	false
-URxvt.letterSpace:	1
-URxvt.font: xft:Fira Code Retina:size=12,xft:Font Awesome 5 Pro:size=8
-

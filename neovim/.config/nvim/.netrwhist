@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/kreny/dotfiles/xinitrc'
+let g:netrw_dirhist_0='/etc/cron.daily'
+let g:netrw_dirhist_9='/home/kreny/.oh-my-zsh'
+let g:netrw_dirhist_8='/home/kreny/dotfiles/bspwm/.config/bspwm'
+let g:netrw_dirhist_7='/home/kreny/dotfiles/bspwm/.config'
+let g:netrw_dirhist_6='/home/kreny/dotfiles/bspwm/.config/bspwm'
+let g:netrw_dirhist_5='/home/kreny/dotfiles/bspwm/.config'
+let g:netrw_dirhist_4='/home/kreny/dotfiles/bspwm'
+let g:netrw_dirhist_3='/home/kreny/.config/cordless'
+let g:netrw_dirhist_2='/home/kreny/projects/botw_havok'

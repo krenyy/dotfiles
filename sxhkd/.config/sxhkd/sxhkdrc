@@ -4,7 +4,11 @@
 
 # terminal emulator
 super + Return
-	urxvtc
+	alacritty
+
+# file manager
+super + r
+	alacritty -e lf
 
 # program launcher
 super + space
@@ -26,13 +30,9 @@ super + v
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# lock screen
-super + alt + z
-	$HOME/scripts/i3lock.sh
-
 # change keyboard layout
 alt + shift + {e, c}
-	setxkbmap {us, cz}
+	setxkbmap {'us', 'cz(qwerty)'}
 
 # print to clipboard
 shift + Print
@@ -40,6 +40,11 @@ shift + Print
 
 Print
 	import png:- | xclip -selection clipboard -t image/png
+
+# virsh: attach usb input
+Scroll_Lock
+	$HOME/machines/input/attach.sh
+
 
 
 #
