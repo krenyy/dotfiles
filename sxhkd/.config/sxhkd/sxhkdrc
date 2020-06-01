@@ -12,7 +12,7 @@ super + r
 
 # web browser
 super + w
-	vivaldi-stable
+	brave
 
 # chat client
 super + d
