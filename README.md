@@ -11,4 +11,4 @@
 * `git clone https://github.com/23kreny/dotfiles`
 * `cd dotfiles`
 * `stow */`
-* `wpg -rs wallpaper.jpg`
+* open `wpg` and set the wallpaper
