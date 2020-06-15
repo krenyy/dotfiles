@@ -127,8 +127,7 @@ ex ()
   fi
 }
 
-### ALIASES ###
-
+# Aliases
 alias cp="cp -i"
 alias df="df -h"
 
@@ -142,4 +141,8 @@ alias rm='rm -i'
 
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias clock='tty-clock -c -C 1'
+
+# Apply color scheme
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 

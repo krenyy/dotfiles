@@ -32,26 +32,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# --------------------
 
-# Set wallpaper
-feh --no-fehbg --bg-scale $HOME/dotfiles/minimalist-nature-landscape-night-a191.jpg
+# Set wallpaper and color scheme
+wal -R
 
 # Set refresh rate
 xrandr -r 75
 
-# Set root cursor
+# Set default cursor
 xsetroot -cursor_name left_ptr &
 
 # Auth agent
 lxpolkit &
 
-# Clipboard manager
-greenclip daemon &
-
-# Night light
-redshift &
-
-# BSPWM
+# Start BSPWM
 exec bspwm
 

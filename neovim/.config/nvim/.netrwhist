@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/kreny/.config/wpg/templates'
+let g:netrw_dirhist_5='/home/kreny/projects/python/botw_xlink/botw_xlink/binary'
+let g:netrw_dirhist_4='/home/kreny/projects/python/botw_xlink/botw_xlink'
+let g:netrw_dirhist_3='/home/kreny/projects/python/botw_xlink'
+let g:netrw_dirhist_2='/usr/share/xsessions'
+let g:netrw_dirhist_1='/home/kreny/dotfiles/xinitrc'

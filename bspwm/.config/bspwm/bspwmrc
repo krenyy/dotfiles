@@ -1,82 +1,67 @@
 #! /bin/sh
 
+# Workspaces definition
 bspc monitor -d web chat code music media gaming graphics term
 
-bspc config window_gap          12
-bspc config border_width         1
+# Basic configuration
+bspc config window_gap		12
+bspc config border_width	1
+bspc config split_ratio		0.52
+bspc config borderless_monocle	true
+bspc config gapless_monocle	true
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+# Pointer configuration
+bspc config pointer_action1	move
+bspc config pointer_action2	none
+bspc config pointer_action3	resize_corner
+
+# Make moving floating windows smooth
+bspc config pointer_motion_interval 1ms
+
 
 ################
 # WINDOW RULES #
 ################
 
 # Browsers
-bspc rule -a Vivaldi-stable desktop=web
-bspc rule -a Brave-browser desktop=web
+bspc rule -a Vivaldi-stable	desktop=web
+bspc rule -a Brave-browser	desktop=web
 
 # Chat clients
-bspc rule -a discord desktop=chat
+bspc rule -a discord		desktop=chat
 
 # Programming
-bspc rule -a jetbrains-webstorm desktop=code
-bspc rule -a jetbrains-clion desktop=code
-bspc rule -a jetbrains-pycharm desktop=code
+bspc rule -a jetbrains-clion	desktop=code
+bspc rule -a jetbrains-pycharm	desktop=code
+bspc rule -a jetbrains-webstorm	desktop=code
 
-# Music players
-bspc rule -a Spotify desktop=music  # Requires 'spotifywm-git' package 
-
-# Gaming stuff
-bspc rule -a Virt-manager state=floating #desktop=gaming
+# Music
+bspc rule -a Spotify		desktop=music  # Requires 'spotifywm-git' package 
 
 # Multimedia players
-bspc rule -a Kodi desktop=media
+bspc rule -a Kodi		desktop=media
 
 # Graphics programs
-bspc rule -a Blender desktop=graphics
+bspc rule -a Blender		desktop=graphics
 
 # Other rules
-bspc rule -a studentui state=floating
-bspc rule -a __main__.py state=floating
-
-
-
-#########################
-# POINTER CONFIGURATION #
-#########################
-
-bspc config pointer_action1 move
-bspc config pointer_action2 none
-bspc config pointer_action3 resize_corner
-
-# Make moving floating windows smooth
-bspc config pointer_motion_interval 1ms
-
+bspc rule -a Virt-manager	state=floating
+bspc rule -a studentui		state=floating
+bspc rule -a __main__.py	state=floating
 
 # --------------------
 
 
-#######################################
-# Kill services to prevent duplicates #
-#######################################
-
-killall -9 sxhkd picom dunst polybar unclutter xidlehook
+# Kill services to prevent duplicates
+killall -9 sxhkd picom polybar unclutter redshift
 
 
-###################
-# Launch services #
-###################
-
+# Launch services
 sxhkd &				# Shortcuts
 picom &				# Compositor
 polybar main &			# Top bar
-dunst &				# Notifications
 unclutter --timeout 2 &		# Hide cursor after 2 seconds
-
-# Autolock and autosusped after certain time
-xidlehook --not-when-audio --timer 300 $HOME/scripts/i3lock.sh '' &
+redshift &			# Night light
 
 
 ##################
@@ -89,9 +74,8 @@ startup_lock_file=/tmp/bspwm-startup.lock
 if [ ! -f $startup_lock_file ]; then
     touch $startup_lock_file
 
-    # vivaldi-stable &
+    # brave &
     discord &
-    # spotify &
 fi
 
-bash /home/kreny/.config/bspwm/bspwm_colors.sh &
+bash bspwm_colors.sh &

@@ -20,19 +20,11 @@ super + d
 
 # program launcher
 super + space
-	rofi -show run
+	dmenu_run -fn "Fira Code Retina"
 
-# emojis (rofimoji)
-super + e
-	rofimoji
-
-# calculator (rofi-calc)
-super + z
-	rofi -modi calc -show calc -no-show-match -no-sort
-
-# clipboard manager (rofi-greenclip)
+# clipboard manager
 super + v
-	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	clipmenu -fn "Fira Code Retina"
 
 # make sxhkd reload its configuration files:
 super + Escape

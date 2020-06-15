@@ -1,6 +1,9 @@
 " Enable syntax highlighting
 syntax on
 
+" Enable line numbers
+set number
+
 " Status bar
 set laststatus=2
 

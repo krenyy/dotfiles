@@ -1,10 +1,10 @@
 [colors]
-background = ${xrdb:color8:#847674}
-foreground = ${xrdb:color15:#bdaaa7}
-active = #492d4e
-inactive = #321f35
-highlight = ${xrdb:color2:#3A4861}
-error = ${xrdb:color9:#5C3962}
+background = ${{xrdb:color8:{color8}}}
+foreground = ${{xrdb:color15:{color15}}}
+active = {active}
+inactive = {inactive}
+highlight = ${{xrdb:color2:{color2}}}
+error = ${{xrdb:color9:{color9}}}
 
 [settings]
 pseudo-transparency = true
@@ -47,8 +47,8 @@ font-1 = Font Awesome 5 Pro:style=Solid:size=11;1
 ; COLORS ;
 ;--------;
 
-background = 0 ; ${colors.background}
-foreground = ${colors.foreground}
+background = 0 ; ${{colors.background}}
+foreground = ${{colors.foreground}}
 border-color = 0
 
 ;---------------;
@@ -105,10 +105,10 @@ pin-workspaces = true
 strip-wsnumbers = true
 enable-scroll = true
 
-label-focused-foreground = ${colors.foreground}
-label-occupied-foreground = ${colors.active}
-label-empty-foreground = ${colors.highlight}
-label-urgent-foreground = ${colors.error}
+label-focused-foreground = ${{colors.foreground}}
+label-occupied-foreground = ${{colors.active}}
+label-empty-foreground = ${{colors.highlight}}
+label-urgent-foreground = ${{colors.error}}
 
 ws-icon-0 = term;
 ws-icon-1 = web;
@@ -202,7 +202,7 @@ format =  <label>
 type = custom/script
 interval = 2
 
-exec = free --mebi | grep Mem | awk '{printf " %0.2f GiB", ($3+$5)/1024}'
+exec = free --mebi | grep Mem | awk '{{printf " %0.2f GiB", ($3+$5)/1024}}'
 
 ;type = internal/memory
 ;format =  <label>
