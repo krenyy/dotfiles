@@ -139,10 +139,14 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mv='mv -i'
 alias rm='rm -i'
 
+alias ip='ip -c'
+
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias clock='tty-clock -c -C 1'
 
 # Apply color scheme
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+if [ $(hostname) = Meshify-PC ]; then
+	(cat ~/.cache/wal/sequences &)
+	source ~/.cache/wal/colors-tty.sh
+fi
 

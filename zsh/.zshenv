@@ -2,7 +2,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$/
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="brave"
+export BROWSER="firefox"
 
 # Clean-up ~/ dir
 export XDG_CONFIG_HOME="$HOME/.config"

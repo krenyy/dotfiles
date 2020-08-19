@@ -6,10 +6,6 @@
 super + Return
 	alacritty
 
-# file manager
-super + r
-	alacritty -e lf
-
 # web browser
 super + w
 	brave
@@ -22,10 +18,6 @@ super + d
 super + space
 	dmenu_run -fn "Fira Code Retina"
 
-# clipboard manager
-super + v
-	clipmenu -fn "Fira Code Retina"
-
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -34,16 +26,30 @@ super + Escape
 alt + shift + {e, c}
 	setxkbmap {'us', 'cz(qwerty)'}
 
-# print to clipboard
-shift + Print
+# lock screen
+ctrl + alt + l
+	physlock
+
+# printscreen to clipboard
+Print
 	import -window root png:- | xclip -selection clipboard -t image/png
 
-Print
+shift + Print
 	import png:- | xclip -selection clipboard -t image/png
 
-# virsh: attach usb input
-Scroll_Lock
-	$HOME/machines/input/attach.sh
+
+
+#
+# bspwm tweaks
+#
+
+# focused node to preselection
+super + shift + m
+	bspc node -n last.!automatic
+
+# rotate tree
+super + shift + {a, d}
+	bspc node @/ -C {backward,forward}
 
 
 

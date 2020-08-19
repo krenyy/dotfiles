@@ -1,10 +1,5 @@
 [colors]
-background = ${xrdb:color8:#847674}
-foreground = ${xrdb:color15:#bdaaa7}
-active = #492d4e
-inactive = #321f35
-highlight = ${xrdb:color2:#3A4861}
-error = ${xrdb:color9:#5C3962}
+include-file = ~/dotfiles/polybar/.config/polybar/colors
 
 [settings]
 pseudo-transparency = true
@@ -96,6 +91,7 @@ interval = 300
 exec = ~/.config/polybar/modules/forecast.py
 exec-if = ping openweathermap.org -c 1
 
+click-left = alacritty -e ~/scripts/wttrin.sh &
 
 
 [module/bspwm]
@@ -106,7 +102,7 @@ strip-wsnumbers = true
 enable-scroll = true
 
 label-focused-foreground = ${colors.foreground}
-label-occupied-foreground = ${colors.active}
+label-occupied-foreground = ${colors.miscellaneous}
 label-empty-foreground = ${colors.highlight}
 label-urgent-foreground = ${colors.error}
 
@@ -114,10 +110,11 @@ ws-icon-0 = term;
 ws-icon-1 = web;
 ws-icon-2 = code;
 ws-icon-3 = chat;
-ws-icon-4 = music;
-ws-icon-5 = media;
-ws-icon-6 = gaming;
-ws-icon-7 = graphics;
+ws-icon-4 = audio;
+ws-icon-5 = music;
+ws-icon-6 = media;
+ws-icon-7 = gaming;
+ws-icon-8 = graphics;
 
 label-focused = %icon%
 label-occupied = %icon%

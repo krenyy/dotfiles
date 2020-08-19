@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Workspaces definition
-bspc monitor -d web chat code music media gaming graphics term
+bspc monitor -d web chat code audio music media gaming graphics term
 
 # Basic configuration
 bspc config window_gap		12
@@ -9,6 +9,7 @@ bspc config border_width	1
 bspc config split_ratio		0.52
 bspc config borderless_monocle	true
 bspc config gapless_monocle	true
+bspc config ignore_ewmh_focus	true
 
 # Pointer configuration
 bspc config pointer_action1	move
@@ -24,7 +25,6 @@ bspc config pointer_motion_interval 1ms
 ################
 
 # Browsers
-bspc rule -a Vivaldi-stable	desktop=web
 bspc rule -a Brave-browser	desktop=web
 
 # Chat clients
@@ -35,8 +35,13 @@ bspc rule -a jetbrains-clion	desktop=code
 bspc rule -a jetbrains-pycharm	desktop=code
 bspc rule -a jetbrains-webstorm	desktop=code
 
+# Audio
+bspc rule -a QjackCtl		desktop=audio	state=floating
+bspc rule -a Jack_mixer		desktop=audio	state=floating
+bspc rule -a REAPER		desktop=audio	state=floating	follow=false
+
 # Music
-bspc rule -a Spotify		desktop=music  # Requires 'spotifywm-git' package 
+bspc rule -a Spotify		desktop=sound  # Requires 'spotifywm-git' package 
 
 # Multimedia players
 bspc rule -a Kodi		desktop=media
@@ -53,15 +58,13 @@ bspc rule -a __main__.py	state=floating
 
 
 # Kill services to prevent duplicates
-killall -9 sxhkd picom polybar unclutter redshift
+killall -9 sxhkd polybar unclutter
 
 
 # Launch services
 sxhkd &				# Shortcuts
-picom &				# Compositor
 polybar main &			# Top bar
 unclutter --timeout 2 &		# Hide cursor after 2 seconds
-redshift &			# Night light
 
 
 ##################
@@ -69,13 +72,27 @@ redshift &			# Night light
 ##################
 
 
-startup_lock_file=/tmp/bspwm-startup.lock
+startup_lock_file=/tmp/bspwm-autostart-apps.lock
 
 if [ ! -f $startup_lock_file ]; then
-    touch $startup_lock_file
+	touch $startup_lock_file
 
-    # brave &
-    discord &
+	###############
+	# AUDIO STUFF #
+	###############
+	sleep 5
+	qjackctl &
+	sleep 4
+	jack_mixer -c $HOME/jack/mixer.xml &
+	reaper $HOME/reaper/default.RPP &
+	fluidsynth -a jack -m jack -g 1.0 /usr/share/soundfonts/FluidR3_GM.sf2 &
+
+	########
+	# APPS #
+	########
+	discord &
 fi
 
-bash bspwm_colors.sh &
+# Colors
+bash colors &
+

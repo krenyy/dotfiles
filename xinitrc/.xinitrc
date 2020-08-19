@@ -36,14 +36,14 @@ fi
 # Set wallpaper and color scheme
 wal -R
 
-# Set refresh rate
-xrandr -r 75
-
 # Set default cursor
 xsetroot -cursor_name left_ptr &
 
 # Auth agent
 lxpolkit &
+
+# Night light
+redshift &
 
 # Start BSPWM
 exec bspwm
