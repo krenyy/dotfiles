@@ -64,7 +64,7 @@ killall -9 sxhkd polybar unclutter
 # Launch services
 sxhkd &				# Keyboard shortcuts
 polybar main -r &		# Status bar
-picom -C &			# Compositor
+picom -b			# Compositor
 unclutter --timeout 2 &		# Hide cursor
 
 
