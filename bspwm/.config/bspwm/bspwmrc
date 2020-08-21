@@ -58,7 +58,7 @@ bspc rule -a __main__.py	state=floating
 
 
 # Kill services to prevent duplicates
-killall -9 sxhkd polybar unclutter
+killall -9 sxhkd polybar picom unclutter
 
 
 # Launch services
