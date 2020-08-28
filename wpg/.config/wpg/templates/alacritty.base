@@ -8,6 +8,7 @@ window:
     x: 10
     y: 10
 
+  dynamic_title: true
   dynamic_padding: true
 
 
@@ -23,9 +24,6 @@ background_opacity: 0.95
 
 selection:
   save_to_clipboard: true
-
-
-dynamic_title: true
 
 
 cursor:

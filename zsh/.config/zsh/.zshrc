@@ -144,9 +144,3 @@ alias ip='ip -c'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias clock='tty-clock -c -C 1'
 
-# Apply color scheme
-if [ $(hostname) = Meshify-PC ]; then
-	(cat ~/.cache/wal/sequences &)
-	source ~/.cache/wal/colors-tty.sh
-fi
-
