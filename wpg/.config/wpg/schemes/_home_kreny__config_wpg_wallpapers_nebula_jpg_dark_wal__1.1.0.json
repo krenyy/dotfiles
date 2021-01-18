@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kreny/.config/wpg/wallpapers/nebula.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#080516",
+        "foreground": "#a69bcd",
+        "cursor": "#a69bcd"
+    },
+    "colors": {
+        "color0": "#080516",
+        "color1": "#342470",
+        "color2": "#4E2462",
+        "color3": "#472773",
+        "color4": "#53417D",
+        "color5": "#433C97",
+        "color6": "#523390",
+        "color7": "#a69bcd",
+        "color8": "#746c8f",
+        "color9": "#342470",
+        "color10": "#4E2462",
+        "color11": "#472773",
+        "color12": "#53417D",
+        "color13": "#433C97",
+        "color14": "#523390",
+        "color15": "#a69bcd"
+    }
+}

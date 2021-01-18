@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Workspaces definition
-bspc monitor -d web chat code audio music media gaming graphics term
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # Basic configuration
 bspc config window_gap		12
@@ -24,37 +24,11 @@ bspc config pointer_motion_interval 1ms
 # WINDOW RULES #
 ################
 
-# Browsers
-bspc rule -a Brave-browser	desktop=web
-
-# Chat clients
-bspc rule -a discord		desktop=chat
-
-# Programming
-bspc rule -a jetbrains-clion	desktop=code
-bspc rule -a jetbrains-pycharm	desktop=code
-bspc rule -a jetbrains-webstorm	desktop=code
-
 # Audio
-bspc rule -a Pavucontrol	desktop=audio	state=floating
-bspc rule -a QjackCtl		desktop=audio	state=floating
-bspc rule -a Jack_mixer		desktop=audio	state=floating
-bspc rule -a REAPER		desktop=audio	state=floating	follow=false
+bspc rule -a QjackCtl		desktop=9	state=floating
+bspc rule -a Jack_mixer		desktop=9	state=floating
+bspc rule -a REAPER		desktop=9	state=floating
 
-# Music
-bspc rule -a Spotify		desktop=sound  # Requires 'spotifywm-git' package 
-
-# Multimedia players
-bspc rule -a Kodi		desktop=media
-bspc rule -a Popcorn-Time	desktop=media
-
-# Graphics programs
-bspc rule -a Blender		desktop=graphics
-
-# Other rules
-bspc rule -a Virt-manager	state=floating
-bspc rule -a studentui		state=floating
-bspc rule -a __main__.py	state=floating
 
 # --------------------
 
@@ -63,36 +37,20 @@ bspc rule -a __main__.py	state=floating
 killall sxhkd polybar picom unclutter && sleep 0.1
 
 # Launch services
-sxhkd &				# Keyboard shortcuts
-polybar main -r &		# Status bar
-picom -C -b			# Compositor
-unclutter --timeout 2 &		# Hide cursor
+sxhkd &					# Keyboard shortcuts
+polybar main -r &			# Status bar
+picom -C -b --experimental-backends	# Compositor
+unclutter --timeout 2 &			# Hide cursor
 
 
-##################
-# AUTOSTART APPS #
-##################
-
-
-startup_lock_file=/tmp/bspwm-autostart-apps.lock
+startup_lock_file=/tmp/autostart-apps.lock
 
 if [ ! -f $startup_lock_file ]; then
 	touch $startup_lock_file
 
-	###############
-	# AUDIO STUFF #
-	###############
-	sleep 5
-	qjackctl &
-	sleep 4
-	jack_mixer -c $HOME/jack/mixer.xml &
-	reaper $HOME/reaper/default.RPP &
-	bspc rule -a Alacritty -o desktop=audio state=floating rectangle=802x602+1746+35 && alacritty -e bash -c "fluidsynth -a jack -m jack -r 48000 -g 1.0 ~/Orpheus_18.06.2020.sf2 && zsh" &
+	discord-canary --start-minimized &
 
-	########
-	# APPS #
-	########
-	discord &
+	qjackctl &
 fi
 
 # Colors

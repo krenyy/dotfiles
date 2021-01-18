@@ -12,7 +12,7 @@ super + w
 
 # chat client
 super + d
-	discord
+	discord-canary
 
 # program launcher
 super + space
@@ -26,17 +26,17 @@ super + Escape
 alt + shift + {e, c}
 	setxkbmap {'us', 'cz(qwerty)'}
 
-# lock screen
-ctrl + alt + l
-	physlock
+# change opacity
+super + {minus, equal}
+	picom-trans -c {'-10', '+10'}
 
 # printscreen to clipboard
-Print
-	import -window root png:- | xclip -selection clipboard -t image/png
+{shift,_} + Print
+	shotgun {-g $(slop),_} - | xclip -selection clipboard -t image/png && notify-send "Screenshot taken!"
 
-shift + Print
-	import png:- | xclip -selection clipboard -t image/png
-
+# switch to win10
+Scroll_Lock
+	sh $HOME/libvirt/win10_attach.sh
 
 
 #

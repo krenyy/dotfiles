@@ -10,6 +10,9 @@ set laststatus=2
 " 256 colors
 set t_Co=256
 
+" Indentation
+filetype indent on
+set smartindent
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

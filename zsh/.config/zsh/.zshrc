@@ -99,35 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
-################
-# FROM .bashrc #
-################
-
-# # ex - archive extractor
-ex ()
-{
-  if [ -f $1 ]; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
+# Rehash ZSH completions automatically
+zstyle ":completion:*:commands" rehash 1
 
 # Aliases
+alias watch='watch --color '
+
 alias cp="cp -i"
 alias df="df -h"
 
@@ -141,6 +118,19 @@ alias rm='rm -i'
 
 alias ip='ip -c'
 
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias clock='tty-clock -c -C 1'
+
+
+alias qr='shotgun -g $(slop) - | zbarimg -q --raw -'
+
+# Functions
+
+# Get info from magnet link
+magnet-info() {
+  hash=$(echo "$1" | grep -oP "(?<=btih:).*?(?=&)")
+  echo "Magnet hash: $hash"
+  aria2c --bt-metadata-only=true --bt-save-metadata=true -q "$1"
+  aria2c "$hash.torrent" -S
+  rm -f "$hash.torrent"
+}
 
