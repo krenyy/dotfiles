@@ -42,5 +42,5 @@ rm -r $HOME/.java/.userPrefs/jetbrains/* 2> /dev/null \
 
 printf "\n\n"
 
-echo $(date) >> $HOME/scripts/jetbrains_reset.last_ran.log
+echo $(date) >> $HOME/scripts/logs/jetbrains_reset.last_ran.log
 

@@ -103,25 +103,22 @@ source $ZSH/oh-my-zsh.sh
 zstyle ":completion:*:commands" rehash 1
 
 # Aliases
-alias watch='watch --color '
-
 alias cp="cp -i"
-alias df="df -h"
-
-alias ls='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-
 alias mv='mv -i'
 alias rm='rm -i'
 
+alias watch='watch --color '
 alias ip='ip -c'
+
+alias df="df -h"
+alias ls='exa -al --group-directories-first'
 
 alias clock='tty-clock -c -C 1'
 
-
 alias qr='shotgun -g $(slop) - | zbarimg -q --raw -'
+alias tb='nc termbin.com 9999'
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Functions
 

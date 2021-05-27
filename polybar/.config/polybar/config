@@ -2,7 +2,7 @@
 include-file = ~/dotfiles/polybar/.config/polybar/colors
 
 [settings]
-pseudo-transparency = false
+pseudo-transparency = true
 
 [bar/main]
 
@@ -80,7 +80,6 @@ type = custom/script
 interval = 300
 
 exec = ~/.config/polybar/modules/forecast.py
-exec-if = ping openweathermap.org -c 1
 
 click-left = alacritty -e ~/scripts/wttrin.sh &
 

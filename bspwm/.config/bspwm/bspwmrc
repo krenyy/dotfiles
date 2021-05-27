@@ -25,9 +25,11 @@ bspc config pointer_motion_interval 1ms
 ################
 
 # Audio
-bspc rule -a QjackCtl		desktop=9	state=floating
-bspc rule -a Jack_mixer		desktop=9	state=floating
-bspc rule -a REAPER		desktop=9	state=floating
+bspc rule -a QjackCtl     desktop=9	state=floating rectangle=490x108+2050+1314
+bspc rule -a Jack_mixer   desktop=9	state=floating rectangle=234x676+2306+60
+bspc rule -a calfjackhost desktop=9 state=floating rectangle=782x308+1504+60
+bspc rule -a Calfjackhost desktop=9 state=floating
+bspc rule -a REAPER       desktop=9	state=floating rectangle=354x522+2188+766
 
 
 # --------------------
@@ -48,7 +50,7 @@ startup_lock_file=/tmp/autostart-apps.lock
 if [ ! -f $startup_lock_file ]; then
 	touch $startup_lock_file
 
-	discord-canary --start-minimized &
+	discord --no-sandbox --start-minimized &
 
 	qjackctl &
 fi
