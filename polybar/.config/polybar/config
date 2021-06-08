@@ -32,7 +32,8 @@ padding-left = 1
 padding-right = 1
 module-margin = 2
 
-modules-left = cputemp cpuclock cpu memory win10vm network
+;modules-left = cputemp cpuclock cpu memory win10vm network
+modules-left = cputemp cpu memory win10vm network
 modules-center = bspwm
 modules-right = keyboard weather date time
 
