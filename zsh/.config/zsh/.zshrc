@@ -102,6 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # Rehash ZSH completions automatically
 zstyle ":completion:*:commands" rehash 1
 
+# Disable oh-my-zsh update prompt
+export DISABLE_UPDATE_PROMPT="true"
+
 # Aliases
 alias cp="cp -i"
 alias mv='mv -i'
@@ -130,4 +133,10 @@ magnet-info() {
   aria2c "$hash.torrent" -S
   rm -f "$hash.torrent"
 }
+
+# Start X
+if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+  logout
+fi
 
