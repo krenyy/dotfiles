@@ -41,7 +41,7 @@ apply_options({
   showcmd = true,
   cmdheight = 1,
   ruler = true,
-  -- shortmess = vim.opt.shortmess .. 'c',
+  shortmess = vim.o.shortmess .. 'W',
   completeopt = { 'menuone', 'noinsert', 'noselect' },
   scrolloff = 4,
   sidescrolloff = 4,
