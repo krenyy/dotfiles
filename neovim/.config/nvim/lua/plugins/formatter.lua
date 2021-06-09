@@ -12,6 +12,14 @@ local prettier = function()
   }
 end
 
+local shfmt = function()
+  return {
+    exe = "shfmt",
+    args = {},
+    stdin = true
+  }
+end
+
 local rustfmt = function()
   return {
     exe = "rustfmt",
@@ -67,6 +75,9 @@ require('formatter').setup({
     html = {
       prettier
     },
+    sh = {
+      shfmt
+    },
     rust = {
       rustfmt
     }
@@ -79,9 +90,10 @@ require('formatter').setup({
 -- vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
 -- vim.api.nvim_command [[augroup END]]
 
+-- autocmd BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs FormatWrite
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs FormatWrite
+  autocmd BufWritePost * FormatWrite
 augroup END
 ]], true)
