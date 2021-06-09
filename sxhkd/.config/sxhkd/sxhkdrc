@@ -4,7 +4,10 @@
 
 # terminal emulator
 super + Return
-	alacritty
+  alacritty
+
+super + shift + Return
+	sh -c $HOME/scripts/alacritty_cwd.sh
 
 # web browser
 super + w
