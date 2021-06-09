@@ -31,8 +31,3 @@ require('plugins.lspconfig.sumneko_lua')
 require('plugins.lspconfig.tsserver')
 require('plugins.lspconfig.vimls')
 
--- Format file on save
--- vim.api.nvim_command([[
-  -- autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
--- ]])
-
