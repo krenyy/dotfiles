@@ -124,6 +124,9 @@ return require('packer').startup(function()
     config = function() require('plugins.trouble') end
   }
 
+  use 'mattn/emmet-vim'
+  
+
   use {
     'neovim/nvim-lspconfig',
     config = function() require('plugins.lspconfig') end

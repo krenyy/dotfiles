@@ -46,7 +46,7 @@ local function save_profiles(threshold)
   _G._packer.profile_output = results
 end
 
-time("Luarocks path setup", true)
+time([[Luarocks path setup]], true)
 local package_path_str = "/home/kreny/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/kreny/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/kreny/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/kreny/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
 local install_cpath_pattern = "/home/kreny/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
@@ -57,8 +57,8 @@ if not string.find(package.cpath, install_cpath_pattern, 1, true) then
   package.cpath = package.cpath .. ';' .. install_cpath_pattern
 end
 
-time("Luarocks path setup", false)
-time("try_loadstring definition", true)
+time([[Luarocks path setup]], false)
+time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
   local success, result = pcall(loadstring(s))
   if not success then
@@ -69,8 +69,8 @@ local function try_loadstring(s, component, name)
   return result
 end
 
-time("try_loadstring definition", false)
-time("Defining packer_plugins", true)
+time([[try_loadstring definition]], false)
+time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["auto-pairs"] = {
     loaded = true,
@@ -83,6 +83,10 @@ _G.packer_plugins = {
   ["completion-treesitter"] = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/completion-treesitter"
+  },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/emmet-vim"
   },
   ["formatter.nvim"] = {
     config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0" },
@@ -223,75 +227,75 @@ _G.packer_plugins = {
   }
 }
 
-time("Defining packer_plugins", false)
+time([[Defining packer_plugins]], false)
 -- Config for: lsp_signature.nvim
-time("Config for lsp_signature.nvim", true)
+time([[Config for lsp_signature.nvim]], true)
 try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time("Config for lsp_signature.nvim", false)
+time([[Config for lsp_signature.nvim]], false)
 -- Config for: nvim-lspconfig
-time("Config for nvim-lspconfig", true)
+time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time("Config for nvim-lspconfig", false)
+time([[Config for nvim-lspconfig]], false)
 -- Config for: indent-blankline.nvim
-time("Config for indent-blankline.nvim", true)
+time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\1\0028\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\29plugins.indent-blankline\frequire\0", "config", "indent-blankline.nvim")
-time("Config for indent-blankline.nvim", false)
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: trouble.nvim
-time("Config for trouble.nvim", true)
+time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.trouble\frequire\0", "config", "trouble.nvim")
-time("Config for trouble.nvim", false)
+time([[Config for trouble.nvim]], false)
 -- Config for: rainbow
-time("Config for rainbow", true)
+time([[Config for rainbow]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\1\0:\1\2\0G\0\1\0\19rainbow_active\6g\bvim\0", "config", "rainbow")
-time("Config for rainbow", false)
+time([[Config for rainbow]], false)
 -- Config for: galaxyline.nvim
-time("Config for galaxyline.nvim", true)
+time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.galaxyline\frequire\0", "config", "galaxyline.nvim")
-time("Config for galaxyline.nvim", false)
+time([[Config for galaxyline.nvim]], false)
 -- Config for: nvim-bufferline.lua
-time("Config for nvim-bufferline.lua", true)
+time([[Config for nvim-bufferline.lua]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0", "config", "nvim-bufferline.lua")
-time("Config for nvim-bufferline.lua", false)
+time([[Config for nvim-bufferline.lua]], false)
 -- Config for: telescope.nvim
-time("Config for telescope.nvim", true)
+time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.telescope\frequire\0", "config", "telescope.nvim")
-time("Config for telescope.nvim", false)
+time([[Config for telescope.nvim]], false)
 -- Config for: nvim-tree.lua
-time("Config for nvim-tree.lua", true)
+time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17plugins.tree\frequire\0", "config", "nvim-tree.lua")
-time("Config for nvim-tree.lua", false)
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-compe
-time("Config for nvim-compe", true)
+time([[Config for nvim-compe]], true)
 try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.compe\frequire\0", "config", "nvim-compe")
-time("Config for nvim-compe", false)
+time([[Config for nvim-compe]], false)
 -- Config for: lspkind-nvim
-time("Config for lspkind-nvim", true)
+time([[Config for lspkind-nvim]], true)
 try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspkind\frequire\0", "config", "lspkind-nvim")
-time("Config for lspkind-nvim", false)
+time([[Config for lspkind-nvim]], false)
 -- Config for: vim-fugitive
-time("Config for vim-fugitive", true)
+time([[Config for vim-fugitive]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.fugitive\frequire\0", "config", "vim-fugitive")
-time("Config for vim-fugitive", false)
+time([[Config for vim-fugitive]], false)
 -- Config for: gitsigns.nvim
-time("Config for gitsigns.nvim", true)
+time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
-time("Config for gitsigns.nvim", false)
+time([[Config for gitsigns.nvim]], false)
 -- Config for: nvim-treesitter
-time("Config for nvim-treesitter", true)
+time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
-time("Config for nvim-treesitter", false)
+time([[Config for nvim-treesitter]], false)
 -- Config for: hop.nvim
-time("Config for hop.nvim", true)
+time([[Config for hop.nvim]], true)
 try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.hop\frequire\0", "config", "hop.nvim")
-time("Config for hop.nvim", false)
+time([[Config for hop.nvim]], false)
 -- Config for: rooter.nvim
-time("Config for rooter.nvim", true)
+time([[Config for rooter.nvim]], true)
 try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.rooter\frequire\0", "config", "rooter.nvim")
-time("Config for rooter.nvim", false)
+time([[Config for rooter.nvim]], false)
 -- Config for: formatter.nvim
-time("Config for formatter.nvim", true)
+time([[Config for formatter.nvim]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0", "config", "formatter.nvim")
-time("Config for formatter.nvim", false)
+time([[Config for formatter.nvim]], false)
 if should_profile then save_profiles() end
 
 END
