@@ -19,7 +19,7 @@ super + d
 
 # program launcher
 super + space
-	dmenu_run -fn "Fira Code Retina"
+	rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -41,6 +41,9 @@ super + {minus, equal}
 Scroll_Lock
 	sh $HOME/libvirt/win10_attach.sh
 
+# add power menu
+ctrl + super + q
+  rofi -show menu -modi "menu:rofi-power-menu --choices=suspend/shutdown/reboot/hibernate"
 
 #
 # bspwm tweaks
