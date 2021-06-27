@@ -1,5 +1,13 @@
 -- I will use this until formatting from LSP is stable.
 
+local black = function()
+  return {
+    exe = "black",
+    args = {"-"},
+    stdin = true
+  }
+end
+
 local prettier = function()
   return {
     exe = "prettier",
@@ -33,6 +41,9 @@ end
 require('formatter').setup({
   logging = false,
   filetype = {
+    python = {
+      black
+    },
     javascript = {
       prettier
     },
@@ -80,7 +91,7 @@ require('formatter').setup({
     },
     rust = {
       rustfmt
-    }
+    },
   }
 })
 
