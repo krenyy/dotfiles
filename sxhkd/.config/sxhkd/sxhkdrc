@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  alacritty
+  sh -c $HOME/scripts/alacritty_glsl_workaround.sh
 
 super + shift + Return
 	sh -c $HOME/scripts/alacritty_cwd.sh

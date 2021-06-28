@@ -8,25 +8,27 @@
 # If the script is run with a non-Alacritty window in focus or a non-compliant
 # version of Alacritty, an instance will be spawned in the user's $HOME.
 
+cd "$(dirname "$0")"
+
 ACTIVE_WINDOW=$(xdotool getactivewindow)
 ACTIVE_WM_CLASS=$(xprop -id $ACTIVE_WINDOW | grep WM_CLASS)
 if [[ $ACTIVE_WM_CLASS == *"Alacritty"* ]]; then
 	# Get PID. If _NET_WM_PID isn't set, bail.
 	PID=$(xprop -id $ACTIVE_WINDOW | grep _NET_WM_PID | grep -oP "\d+")
 	if [[ "$PID" == "" ]]; then
-		alacritty
+		./alacritty_glsl_workaround.sh
 	fi
 	# Get first child of terminal
 	CHILD_PID=$(pgrep -P $PID)
 	if [[ "$PID" == "" ]]; then
-		alacritty
+		./alacritty_glsl_workaround.sh
 	fi
 	# Get current directory of child. The first child should be the shell.
 	pushd "/proc/${CHILD_PID}/cwd"
 	SHELL_CWD=$(pwd -P)
 	popd
 	# Start alacritty with the working directory
-	alacritty --working-directory $SHELL_CWD
+	./alacritty_glsl_workaround.sh --working-directory $SHELL_CWD
 else
-	alacritty
+	./alacritty_glsl_workaround.sh
 fi
