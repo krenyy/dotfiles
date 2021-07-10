@@ -29,7 +29,7 @@ padding-left = 1
 padding-right = 1
 module-margin = 2
 
-modules-left = cpu memory win10vm network
+modules-left = cpu memory win10vm network torify
 modules-center = bspwm
 modules-right = keyboard weather datetime
 
@@ -127,4 +127,18 @@ interface = br0
 
 label-connected = ""
 label-disconnected =   Disconnected
+
+
+[module/torify]
+type = custom/ipc
+
+hook-0 = pgrep -x tor > /dev/null && polybar-msg hook torify 4 || echo "﨩 Off"
+hook-1 = echo "﨩 Shutting down..."
+hook-2 = echo "﨩 Retrieving IP..."
+hook-3 = INFO=$(curl -s http://ip-api.com/json/) && echo "﨩 $(echo $INFO | jq -r '.countryCode') $(echo $INFO | jq -r '.query')"
+
+initial = 1
+
+click-left = polybar-msg hook torify 3 && sudo archtorify -t || sudo archtorify -r && polybar-msg hook torify 4
+click-middle = pgrep -x tor > /dev/null && polybar-msg hook torify 2 && sudo archtorify -c; polybar-msg hook torify 1
 
