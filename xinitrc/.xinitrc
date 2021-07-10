@@ -35,8 +35,8 @@ fi
 # Polkit
 lxpolkit &
 
-# Set wallpaper and color scheme
-wal -R
+# Set wallpaper
+feh --bg-scale ~/dotfiles/.wallpapers/.current
 
 # Set default cursor
 xsetroot -cursor_name left_ptr &

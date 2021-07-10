@@ -1,7 +1,0 @@
-background = ${xrdb:color8:{color8}}
-foreground = ${xrdb:color15:{color15}}
-active = {active}
-inactive = {inactive}
-highlight = ${xrdb:color2:{color2}}
-miscellaneous = ${xrdb:color5:{color5}}
-error = ${xrdb:color9:{color9}}

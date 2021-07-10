@@ -1,7 +1,0 @@
-background = ${xrdb:color8:#847674}
-foreground = ${xrdb:color15:#bdaaa7}
-active = #492d4e
-inactive = #321f35
-highlight = ${xrdb:color2:#3A4861}
-miscellaneous = ${xrdb:color5:#8A645F}
-error = ${xrdb:color9:#5C3962}

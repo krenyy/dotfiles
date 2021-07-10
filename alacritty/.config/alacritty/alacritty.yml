@@ -1,1 +1,33 @@
-../../../../.cache/wal/colors-alacritty.yml
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#869C9F'
+
+window:
+  padding:
+    x: 10
+    y: 10
+
+  dynamic_title: true
+  dynamic_padding: true
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Retina
+
+  size: 11.0
+
+background_opacity: 0.75
+
+selection:
+  save_to_clipboard: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+
+shell:
+  program: /bin/zsh
