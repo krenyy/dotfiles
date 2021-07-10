@@ -124,6 +124,6 @@ interval = 3
 
 interface = br0
 
-label-connected =  
+label-connected = ""
 label-disconnected =   Disconnected
 
