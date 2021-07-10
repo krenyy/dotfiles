@@ -1,6 +1,6 @@
 configuration {
 	theme: "/usr/share/rofi/themes/DarkBlue.rasi";
-  font: "Fira Code NerdFont 12";
+  font: "Jetbrains Mono NerdFont 12";
   matching: "fuzzy";
   sorting-method: "fzf";
   sort: true;
