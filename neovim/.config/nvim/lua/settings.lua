@@ -39,7 +39,7 @@ apply_options({
   cursorline = true,
   lazyredraw = true,
   showcmd = true,
-  cmdheight = 1,
+  cmdheight = 2,
   ruler = true,
   shortmess = vim.o.shortmess .. 'W',
   completeopt = { 'menuone', 'noinsert', 'noselect' },

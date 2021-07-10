@@ -4,9 +4,6 @@ local map = require('utils').map
 map('n', 'j', 'gj', { noremap = true, silent = true })
 map('n', 'k', 'gk', { noremap = true, silent = true })
 
--- write silently
-map('c', 'w', 'silent w', { noremap = true, silent = true })
-
 -- disable dead keys
 map('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 map('n', '<Down>', '<Nop>', { noremap = true, silent = true })
