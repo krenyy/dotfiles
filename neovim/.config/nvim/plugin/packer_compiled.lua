@@ -1,17 +1,14 @@
-" Automatically generated packer.nvim plugin loader code
+-- Automatically generated packer.nvim plugin loader code
 
-if !has('nvim-0.5')
-  echohl WarningMsg
-  echom "Invalid Neovim version for packer.nvim!"
-  echohl None
-  finish
-endif
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
+  vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
+  return
+end
 
-packadd packer.nvim
+vim.api.nvim_command('packadd packer.nvim')
 
-try
+local no_errors, error_msg = pcall(function()
 
-lua << END
   local time
   local profile_info
   local should_profile = false
@@ -180,10 +177,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/popup.nvim"
-  },
   rainbow = {
     config = { "\27LJ\1\0020\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\1\0:\1\2\0G\0\1\0\19rainbow_active\6g\bvim\0" },
     loaded = true,
@@ -197,11 +190,6 @@ _G.packer_plugins = {
   ["suda.vim"] = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/suda.vim"
-  },
-  ["telescope.nvim"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.telescope\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["trouble.nvim"] = {
     config = { "\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.trouble\frequire\0" },
@@ -228,10 +216,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time([[Config for lsp_signature.nvim]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0", "config", "formatter.nvim")
+time([[Config for formatter.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: hop.nvim
+time([[Config for hop.nvim]], true)
+try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.hop\frequire\0", "config", "hop.nvim")
+time([[Config for hop.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17plugins.tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
@@ -240,10 +240,26 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\1\0028\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\29plugins.indent-blankline\frequire\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-compe
+time([[Config for nvim-compe]], true)
+try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.compe\frequire\0", "config", "nvim-compe")
+time([[Config for nvim-compe]], false)
+-- Config for: vim-fugitive
+time([[Config for vim-fugitive]], true)
+try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.fugitive\frequire\0", "config", "vim-fugitive")
+time([[Config for vim-fugitive]], false)
+-- Config for: lspkind-nvim
+time([[Config for lspkind-nvim]], true)
+try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspkind\frequire\0", "config", "lspkind-nvim")
+time([[Config for lspkind-nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.trouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 -- Config for: rainbow
 time([[Config for rainbow]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\1\0:\1\2\0G\0\1\0\19rainbow_active\6g\bvim\0", "config", "rainbow")
@@ -256,53 +272,18 @@ time([[Config for galaxyline.nvim]], false)
 time([[Config for nvim-bufferline.lua]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0", "config", "nvim-bufferline.lua")
 time([[Config for nvim-bufferline.lua]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17plugins.tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-compe
-time([[Config for nvim-compe]], true)
-try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.compe\frequire\0", "config", "nvim-compe")
-time([[Config for nvim-compe]], false)
--- Config for: lspkind-nvim
-time([[Config for lspkind-nvim]], true)
-try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspkind\frequire\0", "config", "lspkind-nvim")
-time([[Config for lspkind-nvim]], false)
--- Config for: vim-fugitive
-time([[Config for vim-fugitive]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.fugitive\frequire\0", "config", "vim-fugitive")
-time([[Config for vim-fugitive]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.hop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+time([[Config for lsp_signature.nvim]], false)
 -- Config for: rooter.nvim
 time([[Config for rooter.nvim]], true)
 try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.rooter\frequire\0", "config", "rooter.nvim")
 time([[Config for rooter.nvim]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0", "config", "formatter.nvim")
-time([[Config for formatter.nvim]], false)
 if should_profile then save_profiles() end
 
-END
+end)
 
-catch
-  echohl ErrorMsg
-  echom "Error in packer_compiled: " .. v:exception
-  echom "Please check your config for correctness"
-  echohl None
-endtry
+if not no_errors then
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
+end

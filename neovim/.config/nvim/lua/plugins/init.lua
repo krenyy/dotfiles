@@ -52,7 +52,6 @@ return require('packer').startup(function()
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    branch = 'lua',
     config = function() require('plugins.indent-blankline') end
   }
 
@@ -66,11 +65,11 @@ return require('packer').startup(function()
     config = function() require('plugins.formatter') end
   }
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { plenary, popup },
-    config = function() require('plugins.telescope') end
-  }
+  -- use {
+  --   'nvim-telescope/telescope.nvim',
+  --   requires = { plenary, popup },
+  --   config = function() require('plugins.telescope') end
+  -- }
 
   use {
     'nvim-treesitter/nvim-treesitter',
