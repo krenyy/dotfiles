@@ -16,9 +16,6 @@ map('n', '<Right>', '<Nop>', { noremap = true, silent = true })
 map('n', 'Q', '<Nop>', { noremap = true, silent = true })
 map('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
 
--- save as root
-map('c', 'w!!', 'w !sudo tee % >/dev/null<CR>:e!<CR><CR>')
-
 -- open nvim config
 map('n', '<Leader>rc', ':e $MYVIMRC<CR>', { noremap = true })
 
