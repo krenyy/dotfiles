@@ -15,6 +15,7 @@ border-left-size = 5
 
 bottom = false
 wm-restack = bspwm
+enable-ipc = true
 override-redirect = false
 
 font-0 = Jetbrains Mono Nerd Font:size=12;2
