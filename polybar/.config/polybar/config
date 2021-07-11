@@ -130,15 +130,11 @@ label-disconnected =   Disconnected
 
 
 [module/torify]
-type = custom/ipc
+type = custom/script
 
-hook-0 = pgrep -x tor > /dev/null && polybar-msg hook torify 4 || echo "﨩 Off"
-hook-1 = echo "﨩 Shutting down..."
-hook-2 = echo "﨩 Retrieving IP..."
-hook-3 = INFO=$(curl -s http://ip-api.com/json/) && echo "﨩 $(echo $INFO | jq -r '.countryCode') $(echo $INFO | jq -r '.query')"
+exec = ~/.config/polybar/modules/torify.sh
+tail = true
 
-initial = 1
-
-click-left = polybar-msg hook torify 3 && sudo archtorify -t || sudo archtorify -r && polybar-msg hook torify 4
-click-middle = pgrep -x tor > /dev/null && polybar-msg hook torify 2 && sudo archtorify -c; polybar-msg hook torify 1
+click-left = kill -USR1 %pid%
+click-middle = kill -USR2 %pid%
 
