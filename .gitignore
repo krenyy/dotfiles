@@ -1,1 +1,6 @@
-scripts/scripts/logs/
+.scripts/.logs
+
+dotfiles/zsh/.config/zsh/.zsh_history
+dotfiles/zsh/.config/zsh/.zcompdump-*
+
+dotfiles/polybar/.config/polybar/modules/forecast.json

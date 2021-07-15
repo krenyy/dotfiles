@@ -1,0 +1,94 @@
+<?xml version="1.1" encoding="utf-8"?>
+<rack><plugin type="eq12" instance-name="Equalizer 12 Band" input-index="1" output-index="1">
+<preset bank="0" program="0" plugin="eq12" name="">
+  <param name="bypass" value="0" />
+  <param name="level_in" value="1" />
+  <param name="level_out" value="1" />
+  <param name="meter_inL" value="0" />
+  <param name="meter_inR" value="0" />
+  <param name="meter_outL" value="0" />
+  <param name="meter_outR" value="0" />
+  <param name="clip_inL" value="0" />
+  <param name="clip_inR" value="0" />
+  <param name="clip_outL" value="0" />
+  <param name="clip_outR" value="0" />
+  <param name="hp_active" value="0" />
+  <param name="hp_freq" value="30" />
+  <param name="hp_mode" value="1" />
+  <param name="hp_q" value="0.707" />
+  <param name="lp_active" value="0" />
+  <param name="lp_freq" value="18000" />
+  <param name="lp_mode" value="1" />
+  <param name="lp_q" value="0.707" />
+  <param name="ls_active" value="1" />
+  <param name="ls_level" value="5.27803" />
+  <param name="ls_freq" value="100" />
+  <param name="ls_q" value="0.707" />
+  <param name="hs_active" value="1" />
+  <param name="hs_level" value="6.77396" />
+  <param name="hs_freq" value="5000" />
+  <param name="hs_q" value="0.707" />
+  <param name="p1_active" value="0" />
+  <param name="p1_level" value="1" />
+  <param name="p1_freq" value="60" />
+  <param name="p1_q" value="1" />
+  <param name="p2_active" value="0" />
+  <param name="p2_level" value="1" />
+  <param name="p2_freq" value="120" />
+  <param name="p2_q" value="1" />
+  <param name="p3_active" value="0" />
+  <param name="p3_level" value="1" />
+  <param name="p3_freq" value="250" />
+  <param name="p3_q" value="1" />
+  <param name="p4_active" value="1" />
+  <param name="p4_level" value="0.514057" />
+  <param name="p4_freq" value="698.579" />
+  <param name="p4_q" value="0.529663" />
+  <param name="p5_active" value="0" />
+  <param name="p5_level" value="1" />
+  <param name="p5_freq" value="1000" />
+  <param name="p5_q" value="1" />
+  <param name="p6_active" value="0" />
+  <param name="p6_level" value="1" />
+  <param name="p6_freq" value="2000" />
+  <param name="p6_q" value="1" />
+  <param name="p7_active" value="0" />
+  <param name="p7_level" value="1" />
+  <param name="p7_freq" value="4000" />
+  <param name="p7_q" value="1" />
+  <param name="p8_active" value="0" />
+  <param name="p8_level" value="1" />
+  <param name="p8_freq" value="8000" />
+  <param name="p8_q" value="1" />
+  <param name="individuals" value="1" />
+  <param name="zoom" value="0.25" />
+  <param name="analyzer" value="0" />
+  <param name="analyzer_mode" value="1" />
+</preset>
+</plugin>
+<plugin type="fluidsynth" instance-name="Fluidsynth" output-index="3" midi-index="1">
+<preset bank="0" program="0" plugin="fluidsynth" name="">
+  <param name="master" value="1" />
+  <param name="interpolation" value="2" />
+  <param name="reverb" value="1" />
+  <param name="chorus" value="1" />
+  <var name="preset_key_set">0</var>
+  <var name="preset_key_set10">-1</var>
+  <var name="preset_key_set11">0</var>
+  <var name="preset_key_set12">0</var>
+  <var name="preset_key_set13">0</var>
+  <var name="preset_key_set14">0</var>
+  <var name="preset_key_set15">0</var>
+  <var name="preset_key_set16">0</var>
+  <var name="preset_key_set2">0</var>
+  <var name="preset_key_set3">0</var>
+  <var name="preset_key_set4">0</var>
+  <var name="preset_key_set5">0</var>
+  <var name="preset_key_set6">0</var>
+  <var name="preset_key_set7">0</var>
+  <var name="preset_key_set8">0</var>
+  <var name="preset_key_set9">0</var>
+  <var name="soundfont">/home/kreny/.local/share/sounds/sf2/Chateau Grand-v1.8.sf2</var>
+</preset>
+</plugin>
+</rack>
