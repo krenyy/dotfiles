@@ -3,12 +3,12 @@
 <img src=screenshot.jpg>
 
 ## Prerequisities:
-* `git`
-* `stow`
-* `wpgtk`
+
+- `git`
+- `stow`
 
 ## Installation:
-* `git clone https://github.com/23kreny/dotfiles`
-* `cd dotfiles`
-* `stow */`
-* open `wpg` and set the wallpaper
+
+- `git clone https://github.com/krenyy/dotfiles ~/.dotfiles`
+- `cd ~/.dotfiles`
+- `./install.sh`

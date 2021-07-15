@@ -1,7 +1,0 @@
-configuration {
-	theme: "/usr/share/rofi/themes/DarkBlue.rasi";
-  font: "Jetbrains Mono NerdFont 12";
-  matching: "fuzzy";
-  sorting-method: "fzf";
-  sort: true;
-}

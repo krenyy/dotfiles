@@ -1,0 +1,7 @@
+configuration {
+	theme: "/usr/share/rofi/themes/DarkBlue.rasi";
+  font: "FiraCode Retina 12";
+  matching: "fuzzy";
+  sorting-method: "fzf";
+  sort: true;
+}
