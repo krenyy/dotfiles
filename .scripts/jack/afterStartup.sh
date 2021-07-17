@@ -13,6 +13,8 @@ PID_FILE=$SCRIPT_DIR/pids
 	echo $! >>$PID_FILE
 	reaper $XDG_DATA_HOME/reaper/default.RPP &
 	echo $! >>$PID_FILE
+	a2jmidid -e &
+	echo $! >>$PID_FILE
 
 	pactl load-module module-jack-sink channels=2
 	pactl load-module module-jack-source channels=2

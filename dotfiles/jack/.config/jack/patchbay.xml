@@ -1,8 +1,8 @@
 <!DOCTYPE patchbay>
 <patchbay name="patchbay" version="0.9.2.12git.320015">
  <output-sockets>
-  <socket name="CASIO MIDI OUT" type="jack-midi" exclusive="off" client="system">
-   <plug>midi_capture_[3-9][0-9]?</plug>
+  <socket name="CASIO MIDI OUT" type="jack-midi" exclusive="off" client="a2j">
+   <plug>CASIO\ USB\-MIDI\ \[20\]\ \(capture\)\:\ CASIO\ USB\-MIDI\ MIDI\ 1</plug>
   </socket>
   <socket name="PULSE AUDIO OUT" type="jack-audio" exclusive="off" client="PulseAudio\ JACK\ Sink">
    <plug>front\-left</plug>
@@ -62,15 +62,15 @@
  </input-sockets>
  <slots/>
  <cables>
-  <cable output="CASIO MIDI OUT" input="FLUIDSYNTH MIDI IN" type="jack-midi"/>
-  <cable output="PULSE AUDIO OUT" input="MIXER PULSE AUDIO IN" type="jack-audio"/>
-  <cable output="WIN10 AUDIO OUT" input="MIXER WIN10 AUDIO IN" type="jack-audio"/>
-  <cable output="FLUIDSYNTH AUDIO OUT" input="SYSTEM AUDIO IN" type="jack-audio"/>
-  <cable output="MIXER PULSE AUDIO OUT" input="SYSTEM AUDIO IN" type="jack-audio"/>
-  <cable output="MIXER WIN10 AUDIO OUT" input="SYSTEM AUDIO IN" type="jack-audio"/>
-  <cable output="SYSTEM AUDIO OUT" input="REAPER AUDIO IN" type="jack-audio"/>
-  <cable output="REAPER AUDIO OUT" input="PULSE AUDIO IN" type="jack-audio"/>
-  <cable output="REAPER AUDIO OUT" input="WIN10 AUDIO IN" type="jack-audio"/>
+  <cable type="jack-midi" output="CASIO MIDI OUT" input="FLUIDSYNTH MIDI IN"/>
+  <cable type="jack-audio" output="PULSE AUDIO OUT" input="MIXER PULSE AUDIO IN"/>
+  <cable type="jack-audio" output="WIN10 AUDIO OUT" input="MIXER WIN10 AUDIO IN"/>
+  <cable type="jack-audio" output="FLUIDSYNTH AUDIO OUT" input="SYSTEM AUDIO IN"/>
+  <cable type="jack-audio" output="MIXER PULSE AUDIO OUT" input="SYSTEM AUDIO IN"/>
+  <cable type="jack-audio" output="MIXER WIN10 AUDIO OUT" input="SYSTEM AUDIO IN"/>
+  <cable type="jack-audio" output="SYSTEM AUDIO OUT" input="REAPER AUDIO IN"/>
+  <cable type="jack-audio" output="REAPER AUDIO OUT" input="PULSE AUDIO IN"/>
+  <cable type="jack-audio" output="REAPER AUDIO OUT" input="WIN10 AUDIO IN"/>
  </cables>
 </patchbay>
 
