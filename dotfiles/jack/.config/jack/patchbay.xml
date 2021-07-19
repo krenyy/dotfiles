@@ -12,9 +12,9 @@
    <plug>output\ 0</plug>
    <plug>output\ 1</plug>
   </socket>
-  <socket name="FLUIDSYNTH AUDIO OUT" type="jack-audio" exclusive="off" client="Calf\ Studio\ Gear">
-   <plug>Fluidsynth\ Out\ \#1</plug>
-   <plug>Fluidsynth\ Out\ \#2</plug>
+  <socket name="SFIZZ AUDIO OUT" type="jack-audio" exclusive="off" client="sfizz">
+   <plug>output_1</plug>
+   <plug>output_2</plug>
   </socket>
   <socket name="MIXER PULSE AUDIO OUT" type="jack-audio" exclusive="off" client="jack_mixer">
    <plug>PULSE\ SINK\ Out\ L</plug>
@@ -33,8 +33,8 @@
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket name="FLUIDSYNTH MIDI IN" type="jack-midi" exclusive="off" client="Calf\ Studio\ Gear">
-   <plug>Fluidsynth\ MIDI\ In</plug>
+  <socket name="SFIZZ MIDI IN" type="jack-midi" exclusive="off" client="sfizz">
+   <plug>input</plug>
   </socket>
   <socket name="MIXER PULSE AUDIO IN" type="jack-audio" exclusive="off" client="jack_mixer">
    <plug>PULSE\ SINK\ L</plug>
@@ -62,10 +62,10 @@
  </input-sockets>
  <slots/>
  <cables>
-  <cable type="jack-midi" output="CASIO MIDI OUT" input="FLUIDSYNTH MIDI IN"/>
+  <cable type="jack-midi" output="CASIO MIDI OUT" input="SFIZZ MIDI IN"/>
   <cable type="jack-audio" output="PULSE AUDIO OUT" input="MIXER PULSE AUDIO IN"/>
   <cable type="jack-audio" output="WIN10 AUDIO OUT" input="MIXER WIN10 AUDIO IN"/>
-  <cable type="jack-audio" output="FLUIDSYNTH AUDIO OUT" input="SYSTEM AUDIO IN"/>
+  <cable type="jack-audio" output="SFIZZ AUDIO OUT" input="SYSTEM AUDIO IN"/>
   <cable type="jack-audio" output="MIXER PULSE AUDIO OUT" input="SYSTEM AUDIO IN"/>
   <cable type="jack-audio" output="MIXER WIN10 AUDIO OUT" input="SYSTEM AUDIO IN"/>
   <cable type="jack-audio" output="SYSTEM AUDIO OUT" input="REAPER AUDIO IN"/>

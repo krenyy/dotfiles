@@ -9,11 +9,11 @@ PID_FILE=$SCRIPT_DIR/pids
 
 	jack_mixer -c $XDG_CONFIG_HOME/jack_mixer/state.xml &
 	echo $! >>$PID_FILE
-	calfjackhost -l $XDG_CONFIG_HOME/calf/state.xml &
-	echo $! >>$PID_FILE
 	reaper $XDG_DATA_HOME/reaper/default.RPP &
 	echo $! >>$PID_FILE
 	a2jmidid -e &
+	echo $! >>$PID_FILE
+	sfizz_jack "$XDG_DATA_HOME/soundfonts/sfz/SplendidGrandPiano/Splendid Grand Piano.sfz" &
 	echo $! >>$PID_FILE
 
 	pactl load-module module-jack-sink channels=2
