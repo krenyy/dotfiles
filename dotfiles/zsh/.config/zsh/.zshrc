@@ -25,6 +25,7 @@ alias clock='tty-clock -c -C 1'
 alias qr='shotgun -g $(slop) - | zbarimg -q --raw -'
 alias tb='nc termbin.com 9999'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+alias xmr='cd ~/files/MONERO/ && monero-wallet-cli --log-file ~/files/MONERO/monero-wallet-cli.log'
 
 
 # Use `bat` as `man` pager
