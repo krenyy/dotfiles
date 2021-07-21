@@ -25,7 +25,9 @@ alias clock='tty-clock -c -C 1'
 alias qr='shotgun -g $(slop) - | zbarimg -q --raw -'
 alias tb='nc termbin.com 9999'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-alias xmr='cd ~/files/MONERO/ && monero-wallet-cli --log-file ~/files/MONERO/monero-wallet-cli.log'
+
+alias monero-wallet-cli='(cd /media/samsung970evo1tb/crypto/xmr/wallets && monero-wallet-cli --log-file /media/samsung970evo1tb/crypto/xmr/monero-wallet-cli.log --shared-ringdb-dir /media/samsung970evo1tb/crypto/xmr/shared-ringdb)'
+alias monerod='monerod --log-file /media/samsung970evo1tb/crypto/xmr/bitmonero.log'
 
 
 # Use `bat` as `man` pager
