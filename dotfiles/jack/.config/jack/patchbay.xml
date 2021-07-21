@@ -1,76 +1,76 @@
 <!DOCTYPE patchbay>
 <patchbay name="patchbay" version="0.9.2.12git.320015">
  <output-sockets>
-  <socket name="CASIO MIDI OUT" type="jack-midi" exclusive="off" client="a2j">
-   <plug>CASIO\ USB\-MIDI\ \[20\]\ \(capture\)\:\ CASIO\ USB\-MIDI\ MIDI\ 1</plug>
+  <socket client="a2j" type="jack-midi" name="CASIO MIDI OUT" exclusive="off">
+   <plug>CASIO USB-MIDI \[[0-9][0-9]?\] \(capture\): CASIO USB-MIDI MIDI 1</plug>
   </socket>
-  <socket name="PULSE AUDIO OUT" type="jack-audio" exclusive="off" client="PulseAudio\ JACK\ Sink">
+  <socket client="PulseAudio\ JACK\ Sink" type="jack-audio" name="PULSE AUDIO OUT" exclusive="off">
    <plug>front\-left</plug>
    <plug>front\-right</plug>
   </socket>
-  <socket name="WIN10 AUDIO OUT" type="jack-audio" exclusive="off" client="out\-win10">
+  <socket client="out\-win10" type="jack-audio" name="WIN10 AUDIO OUT" exclusive="off">
    <plug>output\ 0</plug>
    <plug>output\ 1</plug>
   </socket>
-  <socket name="SFIZZ AUDIO OUT" type="jack-audio" exclusive="off" client="sfizz">
+  <socket client="sfizz" type="jack-audio" name="SYNTH AUDIO OUT" exclusive="off">
    <plug>output_1</plug>
    <plug>output_2</plug>
   </socket>
-  <socket name="MIXER PULSE AUDIO OUT" type="jack-audio" exclusive="off" client="jack_mixer">
+  <socket client="jack_mixer" type="jack-audio" name="MIXER PULSE AUDIO OUT" exclusive="off">
    <plug>PULSE\ SINK\ Out\ L</plug>
    <plug>PULSE\ SINK\ Out\ R</plug>
   </socket>
-  <socket name="MIXER WIN10 AUDIO OUT" type="jack-audio" exclusive="off" client="jack_mixer">
+  <socket client="jack_mixer" type="jack-audio" name="MIXER WIN10 AUDIO OUT" exclusive="off">
    <plug>WIN10\ SINK\ Out\ L</plug>
    <plug>WIN10\ SINK\ Out\ R</plug>
   </socket>
-  <socket name="SYSTEM AUDIO OUT" type="jack-audio" exclusive="off" client="system">
+  <socket client="system" type="jack-audio" name="SYSTEM AUDIO OUT" exclusive="off">
    <plug>capture_1</plug>
   </socket>
-  <socket name="REAPER AUDIO OUT" type="jack-audio" exclusive="off" client="REAPER">
+  <socket client="REAPER" type="jack-audio" name="REAPER AUDIO OUT" exclusive="off">
    <plug>out1</plug>
    <plug>out2</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket name="SFIZZ MIDI IN" type="jack-midi" exclusive="off" client="sfizz">
+  <socket client="sfizz" type="jack-midi" name="SYNTH MIDI IN" exclusive="off">
    <plug>input</plug>
   </socket>
-  <socket name="MIXER PULSE AUDIO IN" type="jack-audio" exclusive="off" client="jack_mixer">
+  <socket client="jack_mixer" type="jack-audio" name="MIXER PULSE AUDIO IN" exclusive="off">
    <plug>PULSE\ SINK\ L</plug>
    <plug>PULSE\ SINK\ R</plug>
   </socket>
-  <socket name="MIXER WIN10 AUDIO IN" type="jack-audio" exclusive="off" client="jack_mixer">
+  <socket client="jack_mixer" type="jack-audio" name="MIXER WIN10 AUDIO IN" exclusive="off">
    <plug>WIN10\ SINK\ L</plug>
    <plug>WIN10\ SINK\ R</plug>
   </socket>
-  <socket name="SYSTEM AUDIO IN" type="jack-audio" exclusive="off" client="system">
+  <socket client="system" type="jack-audio" name="SYSTEM AUDIO IN" exclusive="off">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket name="REAPER AUDIO IN" type="jack-audio" exclusive="off" client="REAPER">
+  <socket client="REAPER" type="jack-audio" name="REAPER AUDIO IN" exclusive="off">
    <plug>in1</plug>
   </socket>
-  <socket name="PULSE AUDIO IN" type="jack-audio" exclusive="off" client="PulseAudio\ JACK\ Source">
+  <socket client="PulseAudio\ JACK\ Source" type="jack-audio" name="PULSE AUDIO IN" exclusive="off">
    <plug>front\-left</plug>
    <plug>front\-right</plug>
   </socket>
-  <socket name="WIN10 AUDIO IN" type="jack-audio" exclusive="off" client="in\-win10">
+  <socket client="in\-win10" type="jack-audio" name="WIN10 AUDIO IN" exclusive="off">
    <plug>input\ 0</plug>
    <plug>input\ 1</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable type="jack-midi" output="CASIO MIDI OUT" input="SFIZZ MIDI IN"/>
-  <cable type="jack-audio" output="PULSE AUDIO OUT" input="MIXER PULSE AUDIO IN"/>
-  <cable type="jack-audio" output="WIN10 AUDIO OUT" input="MIXER WIN10 AUDIO IN"/>
-  <cable type="jack-audio" output="SFIZZ AUDIO OUT" input="SYSTEM AUDIO IN"/>
-  <cable type="jack-audio" output="MIXER PULSE AUDIO OUT" input="SYSTEM AUDIO IN"/>
-  <cable type="jack-audio" output="MIXER WIN10 AUDIO OUT" input="SYSTEM AUDIO IN"/>
-  <cable type="jack-audio" output="SYSTEM AUDIO OUT" input="REAPER AUDIO IN"/>
-  <cable type="jack-audio" output="REAPER AUDIO OUT" input="PULSE AUDIO IN"/>
-  <cable type="jack-audio" output="REAPER AUDIO OUT" input="WIN10 AUDIO IN"/>
+  <cable input="SYNTH MIDI IN" type="jack-midi" output="CASIO MIDI OUT"/>
+  <cable input="MIXER PULSE AUDIO IN" type="jack-audio" output="PULSE AUDIO OUT"/>
+  <cable input="MIXER WIN10 AUDIO IN" type="jack-audio" output="WIN10 AUDIO OUT"/>
+  <cable input="SYSTEM AUDIO IN" type="jack-audio" output="SYNTH AUDIO OUT"/>
+  <cable input="SYSTEM AUDIO IN" type="jack-audio" output="MIXER PULSE AUDIO OUT"/>
+  <cable input="SYSTEM AUDIO IN" type="jack-audio" output="MIXER WIN10 AUDIO OUT"/>
+  <cable input="REAPER AUDIO IN" type="jack-audio" output="SYSTEM AUDIO OUT"/>
+  <cable input="PULSE AUDIO IN" type="jack-audio" output="REAPER AUDIO OUT"/>
+  <cable input="WIN10 AUDIO IN" type="jack-audio" output="REAPER AUDIO OUT"/>
  </cables>
 </patchbay>
 
