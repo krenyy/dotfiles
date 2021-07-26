@@ -4,57 +4,51 @@
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # Basic configuration
-bspc config window_gap		12
-bspc config border_width	1
-bspc config split_ratio		0.52
-bspc config borderless_monocle	true
-bspc config gapless_monocle	true
-bspc config ignore_ewmh_focus	true
+bspc config window_gap 12
+bspc config border_width 1
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config ignore_ewmh_focus true
 
 # Pointer configuration
-bspc config pointer_action1	move
-bspc config pointer_action2	none
-bspc config pointer_action3	resize_corner
+bspc config pointer_action1 move
+bspc config pointer_action2 none
+bspc config pointer_action3 resize_corner
 
 # Make moving floating windows smooth
 bspc config pointer_motion_interval 1ms
-
 
 ################
 # WINDOW RULES #
 ################
 
 # Audio
-bspc rule -a QjackCtl     desktop=9	state=floating rectangle=490x108+2050+1314
-bspc rule -a Jack_mixer   desktop=9	state=floating rectangle=234x676+2306+60
-bspc rule -a calfjackhost desktop=9 state=floating rectangle=782x308+1504+60
-bspc rule -a Calfjackhost desktop=9 state=floating
-bspc rule -a REAPER       desktop=9	state=floating rectangle=354x522+2188+766
-
+bspc rule -a QjackCtl desktop=9 state=floating rectangle=490x108+2050+1314
+bspc rule -a Jack_mixer desktop=9 state=floating rectangle=234x676+2306+60
+bspc rule -a REAPER desktop=9 state=floating rectangle=354x522+2188+766
+bspc rule -a Qsampler desktop=9 state=floating rectangle=1302x698+992+56
 
 # --------------------
-
 
 # Kill services to prevent duplicates
 killall sxhkd polybar picom unclutter && sleep 0.1
 
 # Launch services
-sxhkd &					# Keyboard shortcuts
-polybar main -r &			# Status bar
-picom -C -b --experimental-backends	# Compositor
-unclutter --timeout 2 &			# Hide cursor
-
+sxhkd &                             # Keyboard shortcuts
+polybar main -r &                   # Status bar
+picom -C -b --experimental-backends # Compositor
+unclutter --timeout 2 &             # Hide cursor
 
 startup_lock_file=/tmp/autostart-apps.lock
 
 if [ ! -f $startup_lock_file ]; then
 	touch $startup_lock_file
 
-	discord --no-sandbox --start-minimized &
+	discord --start-minimized &
 
 	qjackctl &
 fi
 
 # Colors
 bash colors &
-
