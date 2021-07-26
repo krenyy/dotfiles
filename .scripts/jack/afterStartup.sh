@@ -13,7 +13,7 @@ PID_FILE=$SCRIPT_DIR/pids
 	echo $! >>$PID_FILE
 	a2jmidid -e &
 	echo $! >>$PID_FILE
-	sfizz_jack "$XDG_DATA_HOME/soundfonts/sfz/SplendidGrandPiano/Splendid Grand Piano.sfz" &
+	qsampler -s $XDG_CONFIG_HOME/linuxsampler.org/session.lscp &
 	echo $! >>$PID_FILE
 
 	pactl load-module module-jack-sink channels=2
