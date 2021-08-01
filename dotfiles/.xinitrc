@@ -17,9 +17,6 @@ feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
 # Set default cursor
 xsetroot -cursor_name left_ptr &
 
-# Night light
-redshift &
-
 if [[ -z "$WM" ]]; then
 	WM="bspwm"
 fi
