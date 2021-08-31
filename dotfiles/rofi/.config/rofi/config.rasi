@@ -1,7 +1,20 @@
 configuration {
-	theme: "/usr/share/rofi/themes/DarkBlue.rasi";
   font: "FiraCode NerdFont 12";
   matching: "fuzzy";
   sorting-method: "fzf";
   sort: true;
 }
+
+@theme "/usr/share/rofi/themes/purple.rasi"
+
+* {
+  foreground: rgba(255, 255, 255, 50%);
+  selected-normal-foreground: rgba(255, 255, 255, 60%);
+
+  background: rgba(0, 0, 0, 80%);
+  normal-background: rgba(90, 111, 114, 5%);
+  alternate-normal-background: rgba(0, 0, 0, 5%);
+
+  selected-normal-background: rgba(165, 56, 65, 20%);
+}
+
