@@ -6,16 +6,23 @@ import json
 
 from pathlib import Path
 
-
-# Load configuration from './forecast.json'
-# Configuration file example:
-# {
-#     "api_key": "",          // Your OpenWeatherMap API key
-#     "city": "",             // Your city name
-#     "units": ""             // metric, imperial
-# }
+"""
+ Load configuration from './forecast.json'
+ Configuration file example:
+```
+{
+    "api_key": "YOUR_OPENWEATHERMAP_API_KEY",
+    "city": "YOUR_CITY_NAME",
+    "units": "metric | imperial"
+}
+```
+"""
 with open(Path(__file__).parent / "forecast.json", "r") as f:
     config = json.load(f)
+
+
+class InvalidAPIKeyException(Exception):
+    pass
 
 
 icons = {  # Nerd Font Icons
@@ -45,13 +52,13 @@ units = {
 }
 
 
-def trend(curr, fore):
-    if curr > fore:
+def trend(current, forecast):
+    if current > forecast:
         return ""
-    elif curr < fore:
+    elif current < forecast:
         return ""
-    else:
-        return "ﰣ"
+
+    return "ﰣ"
 
 
 owapi = "https://api.openweathermap.org/data/2.5/"
@@ -80,6 +87,11 @@ if __name__ == "__main__":
     weather = OpenWeatherMap(config["api_key"], config["city"], config["units"])
 
     curr = weather.get_current()
+
+    if curr["cod"] == 401:
+        print(curr)
+        raise InvalidAPIKeyException
+
     fore = weather.get_forecast()
 
     print(
