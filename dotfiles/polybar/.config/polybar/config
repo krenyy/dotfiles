@@ -47,6 +47,7 @@ type = custom/script
 interval = 2
 
 exec = ~/.config/polybar/modules/win10vm.sh
+exec-if = virsh list
 
 
 
