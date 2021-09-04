@@ -25,4 +25,4 @@ PID_FILE=$SCRIPT_DIR/pids
 	jack_disconnect PulseAudio\ JACK\ Sink:front\-left system:playback_1
 	jack_disconnect PulseAudio\ JACK\ Sink:front\-right system:playback_2
 
-} >../.logs/"$(basename -s.sh "$0")".log
+} >../.logs/jack/"$(basename -s.sh "$0")".log

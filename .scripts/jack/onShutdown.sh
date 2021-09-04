@@ -15,4 +15,4 @@ PID_FILE=$SCRIPT_DIR/pids
 	pactl unload-module module-jack-sink
 	pactl unload-module module-jack-source
 
-} >../.logs/"$(basename -s.sh "$0")".log
+} >../.logs/jack/"$(basename -s.sh "$0")".log
