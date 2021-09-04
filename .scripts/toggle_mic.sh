@@ -1,9 +1,12 @@
 cd $(dirname $0)
 
-amixer sget Mic | grep -q "\[on\]"
+CARD_NUMBER=$(grep card /proc/asound/U192k/pcm0c/info | awk '{print $2}')
+AMIXER_CMD="amixer -c $CARD_NUMBER"
+
+$AMIXER_CMD sget Mic | grep -q "\[on\]"
 MUTED=$?
 
-amixer set Mic toggle >/dev/null
+$AMIXER_CMD set Mic toggle >/dev/null
 
 DISPLAY=:0
 if [ $MUTED == 0 ]; then
