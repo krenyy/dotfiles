@@ -39,11 +39,6 @@ return require('packer').startup(function()
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function() require('plugins.indent-blankline') end
-  }
-
-  use {
     'hrsh7th/nvim-compe',
     config = function() require('plugins.compe') end
   }
