@@ -42,4 +42,4 @@ rm -r $HOME/.java/.userPrefs/jetbrains/* 2>/dev/null &&
 
 printf "\n\n"
 
-echo $(date) >>$HOME/dotfiles/.scripts/.logs/jetbrains_reset.last_ran.log
+echo $(date) >>$DOTFILES/.scripts/.logs/jetbrains_reset.last_ran.log
