@@ -1,27 +1,3 @@
--- https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/lua/tj/globals/opt.lua
-
---[[ To use a more declarative syntax, you could do something like this:
-local function set_opts(opts_table)
-  for k, v in pairs(opts_table) do
-    vim.opt[k] = v
-  end
-end
-set_opts {
-  mouse = 'n',
-  fillchars = { eob = "~" },
-}
---]]
-
---[[ Global option names
-For those wondering how to get the values at the top level,
-    you could use Lua's `setfenv` function to set the environment
-    equal to the vim.opt dict
-cc @mccanch
-setfenv(function()
-    mouse = 'n'
-end, vim.opt)()
---]]
-
 local if_nil = function(a, b)
   if a == nil then
     return b
@@ -70,10 +46,6 @@ local convert_vimoption_to_lua = function(option, val)
     end
   end
 end
-
--- local concat_keys = function(t, sep)
---   return table.concat(vim.tbl_keys(t), sep)
--- end
 
 local concat_key_values = function(t, sep, divider)
   local final = {}

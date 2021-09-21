@@ -69,182 +69,81 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["caw.vim"] = {
+  ["bufferline.nvim"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/caw.vim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
   },
-  coBra = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/coBra"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/cmp-buffer"
   },
-  ["completion-treesitter"] = {
+  ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/completion-treesitter"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
-  ["emmet-vim"] = {
+  ["cmp-path"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/emmet-vim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/cmp-path"
   },
-  ["feline.nvim"] = {
-    config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.feline\frequire\0" },
+  ["cmp-vsnip"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/feline.nvim"
-  },
-  ["formatter.nvim"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/formatter.nvim"
-  },
-  ["gitsigns.nvim"] = {
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
   },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
-  ["hop.nvim"] = {
-    config = { "\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.hop\frequire\0" },
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/hop.nvim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  ["is.vim"] = {
+  ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/is.vim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
-  ["lsp_signature.nvim"] = {
-    config = { "\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lsp_signature\frequire\0" },
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
-  },
-  ["lspkind-nvim"] = {
-    config = { "\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspkind\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
-  },
-  nerdtree = {
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.nerdtree\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nerdtree"
-  },
-  ["nvim-bufferline.lua"] = {
-    config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
-  },
-  ["nvim-compe"] = {
-    config = { "\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.compe\frequire\0" },
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0" },
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
-  ["nvim-reload"] = {
+  ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-reload"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0" },
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
-  },
-  ["nvim-treesitter-refactor"] = {
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
-  ["packer.nvim"] = {
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/kreny/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["rooter.nvim"] = {
-    config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.rooter\frequire\0" },
+  ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/rooter.nvim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
   },
-  ["suda.vim"] = {
+  ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/suda.vim"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["vim-fugitive"] = {
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.fugitive\frequire\0" },
+  ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
-  ["vim-lastplace"] = {
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/vim-lastplace"
-  },
-  ["vim-move"] = {
-    loaded = true,
-    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/vim-move"
+    path = "/home/kreny/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.formatter\frequire\0", "config", "formatter.nvim")
-time([[Config for formatter.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.hop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
--- Config for: nvim-compe
-time([[Config for nvim-compe]], true)
-try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.compe\frequire\0", "config", "nvim-compe")
-time([[Config for nvim-compe]], false)
--- Config for: rooter.nvim
-time([[Config for rooter.nvim]], true)
-try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.rooter\frequire\0", "config", "rooter.nvim")
-time([[Config for rooter.nvim]], false)
--- Config for: lspkind-nvim
-time([[Config for lspkind-nvim]], true)
-try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspkind\frequire\0", "config", "lspkind-nvim")
-time([[Config for lspkind-nvim]], false)
--- Config for: vim-fugitive
-time([[Config for vim-fugitive]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.fugitive\frequire\0", "config", "vim-fugitive")
-time([[Config for vim-fugitive]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time([[Config for lsp_signature.nvim]], false)
--- Config for: nerdtree
-time([[Config for nerdtree]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.nerdtree\frequire\0", "config", "nerdtree")
-time([[Config for nerdtree]], false)
--- Config for: feline.nvim
-time([[Config for feline.nvim]], true)
-try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19plugins.feline\frequire\0", "config", "feline.nvim")
-time([[Config for feline.nvim]], false)
--- Config for: nvim-bufferline.lua
-time([[Config for nvim-bufferline.lua]], true)
-try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0", "config", "nvim-bufferline.lua")
-time([[Config for nvim-bufferline.lua]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 if should_profile then save_profiles() end
 
 end)

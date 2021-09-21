@@ -1,4 +1,5 @@
-local map = require('utils').map
+local utils = require('utils')
+local map = utils.map
 
 -- moving up and down the right way
 map('n', 'j', 'gj', { noremap = true, silent = true })
@@ -9,10 +10,6 @@ map('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 map('n', '<Down>', '<Nop>', { noremap = true, silent = true })
 map('n', '<Left>', '<Nop>', { noremap = true, silent = true })
 map('n', '<Right>', '<Nop>', { noremap = true, silent = true })
--- map('i', '<Up>', '<Nop>', { noremap = true, silent = true })
--- map('i', '<Down>', '<Nop>', { noremap = true, silent = true })
--- map('i', '<Left>', '<Nop>', { noremap = true, silent = true })
--- map('i', '<Right>', '<Nop>', { noremap = true, silent = true })
 map('n', 'Q', '<Nop>', { noremap = true, silent = true })
 map('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
 
