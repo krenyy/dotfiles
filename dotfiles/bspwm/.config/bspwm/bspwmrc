@@ -19,18 +19,6 @@ bspc config pointer_action3 resize_corner
 # Make moving floating windows smooth
 bspc config pointer_motion_interval 1ms
 
-################
-# WINDOW RULES #
-################
-
-# Audio
-bspc rule -a QjackCtl desktop=9 state=floating rectangle=490x108+2050+1314
-bspc rule -a Jack_mixer desktop=9 state=floating rectangle=234x676+2306+60
-bspc rule -a REAPER desktop=9 state=floating rectangle=354x522+2188+766
-bspc rule -a Qsampler desktop=9 state=floating rectangle=1302x698+992+56
-
-# --------------------
-
 # Kill services to prevent duplicates
 killall sxhkd polybar picom unclutter && sleep 0.1
 
@@ -45,9 +33,10 @@ startup_lock_file=/tmp/autostart-apps.lock
 if [ ! -f $startup_lock_file ]; then
 	touch $startup_lock_file
 
-	discord --start-minimized &
-
+	linuxsampler --exec-after-init "cat ~/.local/share/linuxsampler/session.lscp | nc localhost 8888" &
 	qjackctl &
+
+	discord --start-minimized &
 fi
 
 # Colors

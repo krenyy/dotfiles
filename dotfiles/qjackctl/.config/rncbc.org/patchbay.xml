@@ -1,0 +1,32 @@
+<!DOCTYPE patchbay>
+<patchbay version="0.9.4" name="patchbay">
+ <output-sockets>
+  <socket client="Midi\-Bridge" type="jack-midi" exclusive="off" name="casio kb midi out">
+   <plug>CASIO\ USB\-MIDI\:\(capture_0\)\ CASIO\ USB\-MIDI\ MIDI\ 1</plug>
+  </socket>
+  <socket client="LinuxSampler" type="jack-audio" exclusive="off" name="linuxsampler audio out">
+   <plug>0</plug>
+   <plug>1</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket client="LinuxSampler" type="jack-midi" exclusive="off" name="linuxsampler midi in">
+   <plug>midi_in_0</plug>
+  </socket>
+  <socket client="UMC204HD\ 192k\ Analog\ Surround\ 4\.0" type="jack-audio" exclusive="off" name="umc204hd front audio in">
+   <plug>playback_FL</plug>
+   <plug>playback_FR</plug>
+  </socket>
+  <socket client="UMC204HD\ 192k\ Analog\ Surround\ 4\.0" type="jack-audio" exclusive="off" name="umc204hd rear audio in">
+   <plug>playback_RL</plug>
+   <plug>playback_RR</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable input="linuxsampler midi in" type="jack-midi" output="casio kb midi out"/>
+  <cable input="umc204hd front audio in" type="jack-audio" output="linuxsampler audio out"/>
+  <cable input="umc204hd rear audio in" type="jack-audio" output="linuxsampler audio out"/>
+ </cables>
+</patchbay>
+
