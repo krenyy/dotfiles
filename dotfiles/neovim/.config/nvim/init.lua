@@ -5,6 +5,8 @@ require'mappings'
 
 require'packer'.startup(function()
 
+  use 'wbthomason/packer.nvim'
+
   use 'sainnhe/gruvbox-material'
 
   use 'neovim/nvim-lspconfig'
