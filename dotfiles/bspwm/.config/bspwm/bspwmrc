@@ -33,6 +33,8 @@ startup_lock_file=/tmp/autostart-apps.lock
 if [ ! -f $startup_lock_file ]; then
 	touch $startup_lock_file
 
+  openrgb --mode off
+
 	linuxsampler --exec-after-init "cat ~/.local/share/linuxsampler/session.lscp | nc localhost 8888" &
 	qjackctl &
 
