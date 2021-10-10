@@ -94,7 +94,12 @@ label-occupied-foreground = #A53841
 label-empty-foreground = #5a6f72
 label-urgent-foreground = #FFA500 
 
-label-separator = " "
+label-focused = %index%
+label-occupied = %index%
+label-urgent =  %index%
+label-empty = %index%
+
+label-separator = "  "
 
 
 [module/datetime]
