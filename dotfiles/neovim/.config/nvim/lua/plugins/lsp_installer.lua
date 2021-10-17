@@ -17,9 +17,6 @@ lsp_installer.on_server_ready(function(server)
 	}
 
 	server:setup(opts)
-	-- while nimls not supported by lsp-installer
-	require("lspconfig").nimls.setup({})
-	--
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
 
