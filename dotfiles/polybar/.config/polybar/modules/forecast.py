@@ -89,8 +89,7 @@ if __name__ == "__main__":
     curr = weather.get_current()
 
     if curr["cod"] == 401:
-        print(curr)
-        raise InvalidAPIKeyException
+        raise InvalidAPIKeyException(curr)
 
     fore = weather.get_forecast()
 
