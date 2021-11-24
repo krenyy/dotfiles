@@ -1,9 +1,5 @@
 local map = require("utils").map
 
--- moving up and down the right way
-map("n", "j", "gj", { noremap = true, silent = true })
-map("n", "k", "gk", { noremap = true, silent = true })
-
 -- disable dead keys
 map("n", "<Up>", "<Nop>", { noremap = true, silent = true })
 map("n", "<Down>", "<Nop>", { noremap = true, silent = true })
@@ -24,10 +20,6 @@ map("n", "<Leader>y", '"+y')
 map("v", "<Leader>y", '"+y')
 map("n", "<Leader>p", '"+p')
 map("v", "<Leader>p", '"+p')
-
--- fix folding with indent-blankline
-map("n", "zo", ":foldopen<CR>:IndentBlanklineRefresh<CR>", { noremap = true, silent = true })
-map("n", "zc", ":foldclose<CR>:IndentBlanklineRefresh<CR>", { noremap = true, silent = true })
 
 -- search and replace the word under cursor
 map("n", "<Leader>*", ":%s/<C-r><C-w>//<Left>")

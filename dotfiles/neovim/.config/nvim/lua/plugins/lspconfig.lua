@@ -1,30 +1,28 @@
-local function setup_servers()
-	require("lspinstall").setup()
-	local servers = require("lspinstall").installed_servers()
-	for _, server in pairs(servers) do
-		require("lspconfig")[server].setup({
-			capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-			on_attach = function(client, bufnr)
-				vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-					vim.lsp.diagnostic.on_publish_diagnostics,
-					{
-						virtual_text = true,
-						signs = false,
-						update_in_insert = false,
-					}
-				)
-			end,
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+	local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+	local function on_attach(client, bufnr)
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			virtual_text = true,
+			signs = false,
+			update_in_insert = false,
 		})
 	end
-end
 
-setup_servers()
+	local opts = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}
 
--- Automatically reload after `:LspInstall <server>`
-require("lspinstall").post_install_hook = function()
-	setup_servers() -- reload installed servers
-	vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+	if server.name == "sumneko_lua" then
+		opts.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+	end
+
+	server:setup(opts)
+	vim.cmd([[do User LspAttachBuffers]])
+end)
 
 local utils = require("utils")
 local map = utils.map

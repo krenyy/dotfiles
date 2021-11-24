@@ -9,12 +9,11 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use("neovim/nvim-lspconfig")
-
 	use({
-		"williamboman/nvim-lsp-installer",
+		"neovim/nvim-lspconfig",
+		requires = "williamboman/nvim-lsp-installer",
 		config = function()
-			require("plugins.lsp_installer")
+			require("plugins.lspconfig")
 		end,
 	})
 
@@ -74,34 +73,10 @@ require("packer").startup(function(use)
 	})
 
 	use({
-		"nvim-telescope/telescope.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("plugins.telescope")
-		end,
-	})
-
-	use({
-		"nvim-telescope/telescope-fzf-native.nvim",
-		run = "make",
-		after = "telescope.nvim",
-		config = function()
-			require("plugins.telescope_fzf_native")
-		end,
-	})
-
-	use({
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
 			require("plugins.gitsigns")
-		end,
-	})
-
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("plugins.indent_blankline")
 		end,
 	})
 

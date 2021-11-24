@@ -71,7 +71,7 @@ apply_options({
 	termguicolors = true,
 	showbreak = "↪ ",
 	listchars = {
-		tab = "» ", -- has to be 2 chars or there's an error
+		tab = "»·", -- has to be 2 chars or there's an error
 		space = "·",
 		extends = "›",
 		precedes = "‹",

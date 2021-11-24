@@ -1,1 +1,2 @@
-require("utils").map("n", ";;", ":HopWord<CR>", { noremap = true, silent = true })
+require("hop").setup()
+require("utils").map("n", ";", ":HopWord<CR>", { noremap = true, silent = true })

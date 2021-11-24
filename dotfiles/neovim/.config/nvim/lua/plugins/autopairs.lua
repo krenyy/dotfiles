@@ -1,4 +1,6 @@
 require("nvim-autopairs").setup()
-require("nvim-autopairs.completion.cmp").setup({
-	auto_select = false,
-})
+
+require("cmp").event:on(
+	"confirm_done",
+	require("nvim-autopairs.completion.cmp").on_confirm_done({ map_char = { tex = "" } })
+)
