@@ -1,7 +1,9 @@
 .scripts/.logs/**/*.log
 
-dotfiles/zsh/.config/zsh/.zsh_history
-dotfiles/zsh/.config/zsh/.zcompdump-*
+dotfiles/neovim/.config/nvim/plugin/packer_compiled.lua
 
 dotfiles/polybar/.config/polybar/modules/forecast.json
+
+dotfiles/zsh/.config/zsh/.zsh_history
+dotfiles/zsh/.config/zsh/.zcompdump-*
 
