@@ -36,7 +36,6 @@ if [ ! -f $startup_lock_file ]; then
   openrgb --mode off
 
 	linuxsampler --exec-after-init "cat ~/.local/share/linuxsampler/session.lscp | nc localhost 8888" &
-	qjackctl &
 
 	discord --start-minimized &
 fi
