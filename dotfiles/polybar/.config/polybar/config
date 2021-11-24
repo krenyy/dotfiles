@@ -96,7 +96,7 @@ label-urgent-foreground = #FFA500
 
 label-focused = %index%
 label-occupied = %index%
-label-urgent =  %index%
+label-urgent = %index%
 label-empty = %index%
 
 label-separator = "  "
@@ -131,6 +131,6 @@ interval = 3
 
 interface = br0
 
-label-connected = ""
+label-connected =   %ifname%
 label-disconnected =   Disconnected
 
