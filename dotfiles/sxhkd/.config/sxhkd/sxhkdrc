@@ -21,6 +21,10 @@ super + d
 super + space
 	rofi -show run
 
+# clipmenu
+super + v
+  clipmenu
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
