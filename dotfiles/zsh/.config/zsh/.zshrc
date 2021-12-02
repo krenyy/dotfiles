@@ -17,7 +17,6 @@ source $ZSH/oh-my-zsh.sh
 # Rehash ZSH completions automatically
 zstyle ":completion:*:commands" rehash 1
 
-
 # Aliases
 alias cp="cp -i"
 alias mv='mv -i'
@@ -25,6 +24,6 @@ alias rm='rm -i'
 alias ip='ip -c'
 alias df="df -h"
 alias ls='exa -alH --group-directories-first'
-alias qr='shotgun -g $(slop) - | zbarimg -q --raw -'
+alias find='fd'
+alias grep='rg'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-

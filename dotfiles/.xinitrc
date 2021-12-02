@@ -2,14 +2,14 @@
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
-	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
+  for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
 fi
 
 # Polkit
-lxpolkit &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # Set wallpaper
 feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
@@ -18,10 +18,10 @@ feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
 xsetroot -cursor_name left_ptr &
 
 if [[ -z "$WM" ]]; then
-	WM="bspwm"
+  WM="bspwm"
 fi
 
 # Start the window manager
 while true; do
-	$WM
+  $WM
 done

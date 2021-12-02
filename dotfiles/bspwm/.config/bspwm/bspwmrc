@@ -31,13 +31,13 @@ unclutter --timeout 2 &             # Hide cursor
 startup_lock_file=/tmp/autostart-apps.lock
 
 if [ ! -f $startup_lock_file ]; then
-	touch $startup_lock_file
+  touch $startup_lock_file
 
   openrgb --mode off
 
-	linuxsampler --exec-after-init "cat ~/.local/share/linuxsampler/session.lscp | nc localhost 8888" &
+  sfizz_jack "~/.local/share/instruments/sfz/Steinway-B-211/Presets/1960_Steinway_B-211_(Stereo_widening).sfz" &
 
-	discord --start-minimized &
+  discord --start-minimized &
 fi
 
 # Colors
