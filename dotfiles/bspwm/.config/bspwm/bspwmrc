@@ -35,8 +35,6 @@ if [ ! -f $startup_lock_file ]; then
 
   openrgb --mode off
 
-  sfizz_jack "~/.local/share/instruments/sfz/Steinway-B-211/Presets/1960_Steinway_B-211_(Stereo_widening).sfz" &
-
   discord --start-minimized &
 fi
 
