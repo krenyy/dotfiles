@@ -24,6 +24,4 @@ alias rm='rm -i'
 alias ip='ip -c'
 alias df="df -h"
 alias ls='exa -alH --group-directories-first'
-alias find='fd'
-alias grep='rg'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
