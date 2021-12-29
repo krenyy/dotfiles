@@ -39,7 +39,7 @@ super + {minus, equal}
 
 # printscreen to clipboard
 {shift,_} + Print
-	shotgun {-g $(slop),_} - | xclip -selection clipboard -t image/png
+	flameshot {gui,screen -c}
 
 # switch to win10
 Scroll_Lock
