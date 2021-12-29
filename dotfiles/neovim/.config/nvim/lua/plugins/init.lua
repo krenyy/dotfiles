@@ -18,6 +18,30 @@ require("packer").startup(function(use)
 	})
 
 	use({
+		"Pocco81/DAPInstall.nvim",
+		requires = "mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.dapinstall")
+		end,
+	})
+
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = "mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.dap_ui")
+		end,
+	})
+
+	use({
+		"theHamsta/nvim-dap-virtual-text",
+		requires = "mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.dap_virtual_text")
+		end,
+	})
+
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
