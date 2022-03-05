@@ -17,7 +17,10 @@ bspc config pointer_action2 none
 bspc config pointer_action3 resize_corner
 
 # Make moving floating windows smooth
-bspc config pointer_motion_interval 1ms
+# bspc config pointer_motion_interval 1ms
+
+# Fix dumbass nvidia driver resizing OpenGL windows lag
+bspc config pointer_motion_interval 50
 
 # Kill services to prevent duplicates
 killall sxhkd polybar picom unclutter && sleep 0.1

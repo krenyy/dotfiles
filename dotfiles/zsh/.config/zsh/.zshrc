@@ -19,9 +19,11 @@ zstyle ":completion:*:commands" rehash 1
 
 # Aliases
 alias cp="cp -i"
+alias df="df -h"
+alias ip='ip -c'
+alias ls='exa -alH --group-directories-first'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ip='ip -c'
-alias df="df -h"
-alias ls='exa -alH --group-directories-first'
+alias wget='wget --hsts-file /dev/null'
+
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'

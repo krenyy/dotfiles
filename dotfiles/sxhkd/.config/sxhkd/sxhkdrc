@@ -6,9 +6,6 @@
 super + Return
   sh -c $DOTFILES/.scripts/alacritty_glsl_workaround.sh
 
-super + shift + Return
-	sh -c $DOTFILES/.scripts/alacritty_cwd.sh
-
 # web browser
 super + w
 	brave

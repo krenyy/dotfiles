@@ -137,4 +137,21 @@ require("packer").startup(function(use)
 			require("plugins.lsp_signature")
 		end,
 	})
+
+	use({
+		"simrat39/rust-tools.nvim",
+		requires = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+		config = function()
+			require("plugins.rust_tools")
+		end,
+	})
+
+	use({
+		"saecki/crates.nvim",
+		event = { "BufRead Cargo.toml" },
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+	})
 end)

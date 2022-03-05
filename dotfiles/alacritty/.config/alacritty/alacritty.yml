@@ -1,9 +1,10 @@
 colors:
   primary:
-    background: '#000000'
-    foreground: '#869C9F'
+    background: "#000000"
+    foreground: "#869C9F"
 
 window:
+  opacity: 0.75
   padding:
     x: 10
     y: 10
@@ -18,8 +19,6 @@ font:
 
   size: 12.0
 
-background_opacity: 0.75
-
 selection:
   save_to_clipboard: true
 
@@ -28,6 +27,9 @@ cursor:
   unfocused_hollow: true
 
 live_config_reload: true
+
+key_bindings:
+  - { key: Return, mods: Command|Shift, action: SpawnNewInstance }
 
 shell:
   program: /bin/zsh
