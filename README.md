@@ -1,6 +1,6 @@
 # dotfiles
 
-<img src=screenshot.jpg>
+![Screenshot](screenshot.jpg)
 
 ## Prerequisities:
 
