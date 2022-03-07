@@ -38,9 +38,9 @@ super + {minus, equal}
 {shift,_} + Print
 	flameshot {gui,screen -c}
 
-# switch to win10
-Scroll_Lock
-	sh $DOTFILES/.scripts/libvirt/win10_attach.sh
+# un/mute mic
+alt + x
+  sh -c $DOTFILES/.scripts/toggle_mic.sh
 
 # add power menu
 ctrl + super + q
