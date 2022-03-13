@@ -1,0 +1,1 @@
+PIPEWIRE_LATENCY=128/48000 sfizz_jack ~/.local/share/instruments/sfz/amethystimperialgrand/Presets/1.\ Amethyst\ Imperial\ Grand\ -\ Concert\ Presets/Amethyst\ Imperial\ Grand.sfz --num_voices 256 --oversampling 8x --preload_size 16384
