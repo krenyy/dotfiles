@@ -18,26 +18,10 @@ require("packer").startup(function(use)
 	})
 
 	use({
-		"Pocco81/DAPInstall.nvim",
-		requires = "mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap",
+		requires = "rcarriga/nvim-dap-ui",
 		config = function()
-			require("plugins.dapinstall")
-		end,
-	})
-
-	use({
-		"rcarriga/nvim-dap-ui",
-		requires = "mfussenegger/nvim-dap",
-		config = function()
-			require("plugins.dap_ui")
-		end,
-	})
-
-	use({
-		"theHamsta/nvim-dap-virtual-text",
-		requires = "mfussenegger/nvim-dap",
-		config = function()
-			require("plugins.dap_virtual_text")
+			require("plugins.dap")
 		end,
 	})
 
@@ -49,18 +33,15 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use("hrsh7th/cmp-vsnip")
-
-	use("hrsh7th/vim-vsnip")
-
-	use("hrsh7th/cmp-nvim-lsp")
-
-	use("hrsh7th/cmp-buffer")
-
-	use("hrsh7th/cmp-path")
-
 	use({
 		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+		},
 		config = function()
 			require("plugins.cmp")
 		end,
@@ -92,7 +73,7 @@ require("packer").startup(function(use)
 	use({
 		"famiu/feline.nvim",
 		config = function()
-			require("plugins.feline")
+			require("feline").setup()
 		end,
 	})
 
@@ -100,14 +81,14 @@ require("packer").startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
-			require("plugins.gitsigns")
+			require("gitsigns").setup()
 		end,
 	})
 
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("plugins.colorizer")
+			require("colorizer").setup()
 		end,
 	})
 
@@ -121,7 +102,6 @@ require("packer").startup(function(use)
 	use("matze/vim-move")
 	use("farmergreg/vim-lastplace")
 	use("haya14busa/is.vim")
-	use("lambdalisue/suda.vim")
 	use("tyru/caw.vim")
 
 	use({
@@ -132,17 +112,21 @@ require("packer").startup(function(use)
 	})
 
 	use({
-		"ray-x/lsp_signature.nvim",
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		},
 		config = function()
-			require("plugins.lsp_signature")
+			require("plugins.telescope")
 		end,
 	})
 
 	use({
-		"simrat39/rust-tools.nvim",
-		requires = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+		"ray-x/lsp_signature.nvim",
 		config = function()
-			require("plugins.rust_tools")
+			require("plugins.lsp_signature")
 		end,
 	})
 

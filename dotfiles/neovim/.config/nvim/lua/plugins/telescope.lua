@@ -1,7 +1,11 @@
 local utils = require("utils")
 local map = utils.map
 
-require("telescope").setup()
+local telescope = require("telescope")
+
+telescope.setup()
+telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 map("n", "<Leader>t", ":Telescope<CR>", { noremap = true })
 map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
