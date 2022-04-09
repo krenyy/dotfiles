@@ -27,3 +27,7 @@ alias rm='rm -i'
 alias wget='wget --hsts-file /dev/null'
 
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+
+if command -v pazi &>/dev/null; then
+  eval "$(pazi init zsh)"
+fi
