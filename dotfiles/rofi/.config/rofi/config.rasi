@@ -1,5 +1,5 @@
 configuration {
-  font: "FiraCode NerdFont 12";
+  font: "Iosevka Nerd Font 12";
   matching: "fuzzy";
   sorting-method: "fzf";
   sort: true;
