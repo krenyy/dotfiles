@@ -1,0 +1,26 @@
+<!DOCTYPE patchbay>
+<patchbay name="patchbay" version="0.2.5">
+ <items>
+  <item node-type="pipewire" port-type="pipewire-midi">
+   <output node="Midi-Bridge" port="CASIO USB-MIDI:CASIO USB-MIDI MIDI 1"/>
+   <input node="sfizz" port="input"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="sfizz" port="output_1"/>
+   <input node="UMC204HD 192k Pro" port="UMC204HD 192k:playback_AUX0"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="sfizz" port="output_2"/>
+   <input node="UMC204HD 192k Pro" port="UMC204HD 192k:playback_AUX1"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="sfizz" port="output_1"/>
+   <input node="UMC204HD 192k Pro" port="UMC204HD 192k:playback_AUX2"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="sfizz" port="output_2"/>
+   <input node="UMC204HD 192k Pro" port="UMC204HD 192k:playback_AUX3"/>
+  </item>
+ </items>
+</patchbay>
+
