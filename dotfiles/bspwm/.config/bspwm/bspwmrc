@@ -23,23 +23,44 @@ bspc config pointer_action3 resize_corner
 bspc config pointer_motion_interval 50
 
 # Kill services to prevent duplicates
-killall sxhkd polybar picom unclutter && sleep 0.1
+for srv in sxhkd polybar picom unclutter redshift; do
+  while :; do
+    PID=$(pidof $srv)
+    if [[ -z $PID ]]; then
+      break
+    fi
+    kill $PID
+    unset PID
+    sleep 0.1
+  done
+done
 
-# Launch services
-sxhkd &                             # Keyboard shortcuts
-polybar main -r &                   # Status bar
-picom -C -b --experimental-backends # Compositor
-unclutter --timeout 2 &             # Hide cursor
+# Launch services and programs
+  # Keyboard shortcuts
+  sxhkd &
 
-startup_lock_file=/tmp/autostart-apps.lock
+  # Status bar
+  polybar main -r &
 
-if [ ! -f $startup_lock_file ]; then
-  touch $startup_lock_file
+  # Compositor
+  picom -C -b --experimental-backends
 
-  openrgb --mode off
+  # Hide cursor
+  unclutter --timeout 2 &
 
-  discord --start-minimized &
-fi
+  # Night light
+  redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
+
+  startup_lock_file=/tmp/autostart-programs.lock
+  if [ ! -f $startup_lock_file ]; then
+    openrgb --mode off &
+
+    qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
+    discord --start-minimized &
+    steam -silent &
+
+    touch $startup_lock_file
+  fi
 
 # Colors
 bash colors &
