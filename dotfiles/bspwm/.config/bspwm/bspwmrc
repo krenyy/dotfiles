@@ -57,7 +57,6 @@ done
 
     qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
     discord --start-minimized &
-    steam -silent &
 
     touch $startup_lock_file
   fi
