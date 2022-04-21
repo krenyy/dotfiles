@@ -6,8 +6,8 @@ colors:
 window:
   opacity: 0.75
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 
   dynamic_title: true
   dynamic_padding: true
