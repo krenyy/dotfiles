@@ -24,7 +24,7 @@ padding-right = 1
 module-margin = 2
 modules-left = cpu memory network
 modules-center = bspwm
-modules-right = microphone keyboard weather datetime
+modules-right = keyboard weather datetime notification-center
 tray-position = none
 tray-detached = true
 locale = cs_CZ.UTF8
@@ -64,7 +64,7 @@ format = ﬙  <label>
 
 [module/network]
 type = internal/network
-interval = 3
+interval = 2
 interface = br0
 label-connected =   %ifname%
 label-disconnected =   Disconnected
@@ -80,7 +80,8 @@ interval = 300
 exec = ~/.config/polybar/modules/forecast.py
 click-left = alacritty -e /bin/sh -c "curl wttr.in && read -n1 -s"
 
-[module/microphone]
-type = custom/script
-interval = 2
-exec = amixer -c $(grep card /proc/asound/U192k/pcm0c/info | awk '{print $2}') sget Mic | grep -q "\[on\]" && echo " On" || echo " Off"
+[module/notification-center]
+type = custom/text
+content = 
+content-padding = 1
+click-left = kill -s USR1 $(pidof deadd-notification-center)
