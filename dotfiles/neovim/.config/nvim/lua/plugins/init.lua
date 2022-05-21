@@ -118,7 +118,7 @@ require("packer").startup(function(use)
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			"natecraddock/telescope-zf-native.nvim",
 		},
 		config = function()
 			require("plugins.telescope")
