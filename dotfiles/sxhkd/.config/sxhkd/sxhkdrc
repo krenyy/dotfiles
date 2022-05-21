@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  sh -c $DOTFILES/.scripts/alacritty_glsl_workaround.sh
+  sh -c $DOTFILES/.scripts/alacritty-glsl-workaround.sh
 
 # web browser
 super + w
@@ -40,7 +40,7 @@ super + {minus, equal}
 
 # un/mute mic
 alt + x
-  sh -c $DOTFILES/.scripts/toggle_mic.sh
+  sh -c $DOTFILES/.scripts/toggle-mic.sh
 
 # add power menu
 ctrl + super + q
