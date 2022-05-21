@@ -38,6 +38,26 @@ super + {minus, equal}
 {shift,_} + Print
 	flameshot {gui,screen -c}
 
+# resume/pause
+XF86AudioPlay
+  mpc toggle && $DOTFILES/.scripts/mpd-info.sh
+
+# previous
+XF86AudioPrev
+  $DOTFILES/.scripts/mpd-seek.sh prev
+
+# next
+XF86AudioNext
+  $DOTFILES/.scripts/mpd-seek.sh next
+
+# volume up
+XF86AudioRaiseVolume
+  mpc volume +2 && $DOTFILES/.scripts/mpd-info.sh
+
+# volume down
+XF86AudioLowerVolume
+  mpc volume -2 && $DOTFILES/.scripts/mpd-info.sh
+
 # un/mute mic
 alt + x
   sh -c $DOTFILES/.scripts/toggle-mic.sh
