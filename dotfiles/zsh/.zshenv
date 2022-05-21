@@ -3,15 +3,12 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-
 # Set dotfiles
 export DOTFILES=$HOME/.dotfiles
-
 
 # Set default programs
 export EDITOR=nvim
 export TERMINAL=alacritty
-
 
 # Clean up $HOME
 export XDG_CONFIG_HOME=$HOME/.config
@@ -30,7 +27,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_DATA_HOME/npm/config
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
 
-
 # Fix Jetbrains software in BSPWM
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -42,4 +38,3 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Use `bat` as `man` pager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
