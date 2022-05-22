@@ -7,5 +7,5 @@ telescope.load_extension("ui-select")
 telescope.load_extension("zf-native")
 telescope.setup()
 
-map("n", "<Leader>f", ":Telescope find_files hidden=true<CR>", { noremap = true })
-map("n", "<Leader>g", ":Telescope live_grep_raw<CR>", { noremap = true })
+map("n", "<Leader>f", ":Telescope find_files theme=dropdown hidden=true <CR>", { noremap = true })
+map("n", "<Leader>g", ":Telescope live_grep theme=dropdown <CR>", { noremap = true })

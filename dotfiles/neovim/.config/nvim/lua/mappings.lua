@@ -9,7 +9,7 @@ map("n", "Q", "<Nop>", { noremap = true, silent = true })
 map("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
 
 -- open nvim config
-map("n", "<Leader>rc", ":e $MYVIMRC<CR>", { noremap = true })
+map("n", "?", ":e $MYVIMRC<CR>", { noremap = true })
 
 -- keep visual selection when indenting
 map("v", "<", "<gv", { noremap = true, silent = true })
