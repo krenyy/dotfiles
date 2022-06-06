@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # Workspaces definition
 bspc monitor -d 1 2 3 4 5 6 7 8 9
@@ -22,6 +22,9 @@ bspc config pointer_action3 resize_corner
 # Fix dumbass nvidia driver resizing OpenGL windows lag
 bspc config pointer_motion_interval 50
 
+# Colors
+bash colors &
+
 # Kill services to prevent duplicates
 for srv in sxhkd polybar picom unclutter redshift; do
   while :; do
@@ -36,30 +39,18 @@ for srv in sxhkd polybar picom unclutter redshift; do
 done
 
 # Launch services and programs
-  # Keyboard shortcuts
-  sxhkd &
+sxhkd &
+polybar main -r &
+picom -C -b --experimental-backends
+unclutter --timeout 2 &
+redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
 
-  # Status bar
-  polybar main -r &
+startup_lock_file=/tmp/autostart-programs.lock
+if [ ! -f $startup_lock_file ]; then
+  openrgb --mode off &
 
-  # Compositor
-  picom -C -b --experimental-backends
+  qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
+  discord --start-minimized &
 
-  # Hide cursor
-  unclutter --timeout 2 &
-
-  # Night light
-  redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
-
-  startup_lock_file=/tmp/autostart-programs.lock
-  if [ ! -f $startup_lock_file ]; then
-    openrgb --mode off &
-
-    qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
-    discord --start-minimized &
-
-    touch $startup_lock_file
-  fi
-
-# Colors
-bash colors &
+  touch $startup_lock_file
+fi
