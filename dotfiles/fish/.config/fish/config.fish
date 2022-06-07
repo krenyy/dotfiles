@@ -11,8 +11,6 @@ if status is-interactive
     alias rm='rm -i'
     alias wget='wget --hsts-file /dev/null'
 
-    alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"
     end
