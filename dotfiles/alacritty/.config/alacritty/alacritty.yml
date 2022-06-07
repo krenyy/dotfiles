@@ -31,4 +31,4 @@ key_bindings:
   - { key: Return, mods: Command|Shift, action: SpawnNewInstance }
 
 shell:
-  program: /bin/zsh
+  program: /usr/bin/fish
