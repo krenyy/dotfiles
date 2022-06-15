@@ -52,6 +52,9 @@ startup_lock_file=/tmp/autostart-programs.lock
 if [ ! -f $startup_lock_file ]; then
   openrgb --mode off &
 
+  calfjackhost --client default-eq --no-gui eq5:default &
+  calfjackhost --client piano-eq --no-gui eq5:default &
+
   qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
   discord --start-minimized &
 
