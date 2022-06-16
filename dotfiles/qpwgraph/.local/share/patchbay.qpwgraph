@@ -42,11 +42,11 @@
    <input node="piano-eq" port="piano-eq:Equalizer 5 Band In #2"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="piano-eq" port="piano-eq:Equalizer 5 Band Out #1"/>
+   <output node="sfizz" port="sfizz:output_1"/>
    <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="piano-eq" port="piano-eq:Equalizer 5 Band Out #2"/>
+   <output node="sfizz" port="sfizz:output_2"/>
    <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
