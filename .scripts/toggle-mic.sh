@@ -6,10 +6,10 @@ MUTED="$?"
 
 if [ "$MUTED" == "0" ]; then
   MESSAGE=" muted"
-  SOUND_FILENAME="message.oga"
+  SOUND_FILENAME="bell.oga"
 else
   MESSAGE=" unmuted"
-  SOUND_FILENAME="bell.oga"
+  SOUND_FILENAME="message.oga"
 fi
 
 amixer set Capture toggle >/dev/null &&
