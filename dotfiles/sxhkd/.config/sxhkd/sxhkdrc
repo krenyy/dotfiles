@@ -38,6 +38,10 @@ super + {minus, equal}
 {shift,_} + Print
 	flameshot {gui,screen -c}
 
+# info
+XF86AudioStop
+  $DOTFILES/.scripts/mpd-info.sh
+
 # resume/pause
 XF86AudioPlay
   mpc toggle && $DOTFILES/.scripts/mpd-info.sh
