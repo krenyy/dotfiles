@@ -1,6 +1,6 @@
 if begin
         test -z $DISPLAY; and test (tty) = /dev/tty1
     end
-    xinit
+    xinit -- vt1
     exit
 end
