@@ -24,9 +24,9 @@ set -x LESSHISTFILE -
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
 set -x NPM_CONFIG_USERCONFIG "$XDG_DATA_HOME/npm/config"
+set -x NUGET_PACKAGES "$XDG_CACHE_HOME/NuGetPackages"
 set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/password-store"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
-set -x XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
 set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 
 # fix jetbrains software in bspwm
