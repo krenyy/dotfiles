@@ -13,18 +13,6 @@
    <output node="virtual-sink" port="virtual-sink:capture_FR"/>
    <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FR"/>
   </item>
-  <item node-type="pipewire" port-type="pipewire-midi">
-   <output node="Midi-Bridge" port="CASIO USB-MIDI:CASIO USB-MIDI MIDI 1"/>
-   <input node="sfizz" port="sfizz:input"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="sfizz" port="sfizz:output_1"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="sfizz" port="sfizz:output_2"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FR"/>
-  </item>
  </items>
 </patchbay>
 
