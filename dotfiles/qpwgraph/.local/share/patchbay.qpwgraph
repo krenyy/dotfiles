@@ -13,33 +13,9 @@
    <output node="virtual-sink" port="virtual-sink:capture_FR"/>
    <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FR"/>
   </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="virtual-sink" port="virtual-sink:capture_FL"/>
-   <input node="default-eq" port="default-eq:Equalizer 5 Band In #1"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="virtual-sink" port="virtual-sink:capture_FR"/>
-   <input node="default-eq" port="default-eq:Equalizer 5 Band In #2"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="default-eq" port="default-eq:Equalizer 5 Band Out #1"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_RL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="default-eq" port="default-eq:Equalizer 5 Band Out #2"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_RR"/>
-  </item>
   <item node-type="pipewire" port-type="pipewire-midi">
    <output node="Midi-Bridge" port="CASIO USB-MIDI:CASIO USB-MIDI MIDI 1"/>
    <input node="sfizz" port="sfizz:input"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="sfizz" port="sfizz:output_1"/>
-   <input node="piano-eq" port="piano-eq:Equalizer 5 Band In #1"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="sfizz" port="sfizz:output_2"/>
-   <input node="piano-eq" port="piano-eq:Equalizer 5 Band In #2"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="sfizz" port="sfizz:output_1"/>
@@ -48,14 +24,6 @@
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="sfizz" port="sfizz:output_2"/>
    <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_FR"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="piano-eq" port="piano-eq:Equalizer 5 Band Out #1"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_RL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="piano-eq" port="piano-eq:Equalizer 5 Band Out #2"/>
-   <input node="UMC204HD 192k Direct UMC204HD 192k" port="UMC204HD 192k:playback_RR"/>
   </item>
  </items>
 </patchbay>
