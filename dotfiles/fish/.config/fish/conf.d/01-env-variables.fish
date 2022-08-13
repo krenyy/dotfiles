@@ -1,7 +1,5 @@
-# add ~/.local/bin/ to PATH
+set -x PATH "/usr/bin/vendor_perl:$PATH"
 set -x PATH "$HOME/.local/bin:$PATH"
-
-# add $CARGO_HOME/bin/ to PATH
 set -x PATH "$CARGO_HOME/bin:$PATH"
 
 # set dotfiles directory
