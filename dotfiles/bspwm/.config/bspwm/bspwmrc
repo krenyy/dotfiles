@@ -38,22 +38,9 @@ for srv in sxhkd polybar picom unclutter redshift; do
   done
 done
 
-# Launch services and programs
+# Launch services
 sxhkd &
 polybar main -r &
 picom -C -b --experimental-backends
 unclutter --timeout 2 &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
-
-startup_lock_file=/tmp/autostart-programs.lock
-if [ ! -f $startup_lock_file ]; then
-  openrgb --mode off &
-
-  calfjackhost --client default-eq --no-gui eq5:default &
-  calfjackhost --client piano-eq --no-gui eq5:default &
-
-  qpwgraph -a -m ~/.local/share/patchbay.qpwgraph &
-  discord --start-minimized &
-
-  touch $startup_lock_file
-fi
