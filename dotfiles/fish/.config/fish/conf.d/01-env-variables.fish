@@ -37,3 +37,7 @@ set -x _JAVA_AWT_WM_NONREPARENTING 1
 
 # `bat` as `man` pager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+# gpg-agent as ssh-agent
+set -e SSH_AGENT_PID
+set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
