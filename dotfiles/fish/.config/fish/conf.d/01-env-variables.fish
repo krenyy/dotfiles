@@ -8,6 +8,8 @@ set -x DOTFILES "$HOME/.dotfiles"
 # set default programs
 set -x EDITOR nvim
 set -x TERMINAL alacritty
+# disable dpi scaling for alacritty
+set -x WINIT_X11_SCALE_FACTOR 1
 
 # set xdg variables
 set -x XDG_CACHE_HOME "$HOME/.cache"
