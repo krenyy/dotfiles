@@ -11,7 +11,7 @@ switch_to_laptop() {
 CURRENT_DISPLAY="$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')"
 N_OF_DISPLAYS="$(xrandr -q | grep " connected " | wc -l)"
 
-if [ "$N_OF_DISPLAYS" -neq 2 ]; then
+if [ "$N_OF_DISPLAYS" -ne 2 ]; then
   exit;
 fi
 
