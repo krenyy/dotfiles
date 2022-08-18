@@ -11,9 +11,6 @@ fi
 # Polkit
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
-# Set wallpaper
-feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
-
 # Set default cursor
 xsetroot -cursor_name left_ptr &
 

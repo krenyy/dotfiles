@@ -25,6 +25,9 @@ bspc config pointer_motion_interval 50
 # Colors
 bash colors &
 
+# Set wallpaper
+feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
+
 # Kill services to prevent duplicates
 for srv in sxhkd polybar picom unclutter redshift; do
   while :; do
