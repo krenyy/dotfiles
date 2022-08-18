@@ -22,9 +22,9 @@ fixed-center = true
 padding-left = 1
 padding-right = 1
 module-margin = 2
-modules-left = cpu memory network
+modules-left = cpu memory battery backlight volume wired wireless
 modules-center = bspwm
-modules-right = keyboard weather datetime notification-center
+modules-right = keyboard datetime notification-center
 tray-position = none
 tray-detached = true
 locale = cs_CZ.UTF8
@@ -62,23 +62,61 @@ type = internal/cpu
 interval = 2
 format = ﬙  <label>
 
-[module/network]
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume>  <label-volume>
+label-muted = ﱝ  0%
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+enable-scroll = true
+format = <ramp>  <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/battery]
+type = internal/battery
+full-at = 100
+low-at = 15
+battery = BAT1
+adapter = ACAD
+poll-interval = 5
+format-full = <ramp-capacity>   <label-full>
+format-charging = <animation-charging>   <label-charging>
+format-discharging = <ramp-capacity>   <label-discharging>
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/wired]
 type = internal/network
 interval = 2
 interface = br0
 label-connected =   %ifname%
-label-disconnected =   Disconnected
+
+[module/wireless]
+type = internal/network
+interval = 2
+interface = wlp2s0
+  label-connected =    %essid%
 
 [module/memory]
 type = custom/script
 interval = 2
 exec = free --mebi | grep Mem | awk '{printf "  %0.2f GiB", ($3+$5)/1024}'
-
-[module/weather]
-type = custom/script
-interval = 300
-exec = ~/.config/polybar/modules/forecast.py
-click-left = alacritty -e /bin/sh -c "curl wttr.in && read -n1 -s"
 
 [module/notification-center]
 type = custom/text
