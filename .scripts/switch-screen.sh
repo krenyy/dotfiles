@@ -12,7 +12,11 @@ CURRENT_DISPLAY="$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^
 N_OF_DISPLAYS="$(xrandr -q | grep " connected " | wc -l)"
 
 if [ "$N_OF_DISPLAYS" -ne 2 ]; then
-  exit;
+  notify-send.py "no display connected! (or too many!)" \
+    --hint boolean:transient:true \
+    -t 1000 \
+    --replaces-process "switch-screen" &
+  exit
 fi
 
 if [ "$CURRENT_DISPLAY" == "eDP-1" ]; then
@@ -22,4 +26,3 @@ else
 fi
 
 bspc wm -r
-
