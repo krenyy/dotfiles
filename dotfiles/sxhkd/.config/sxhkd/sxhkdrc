@@ -61,6 +61,10 @@ XF86AudioLowerVolume
 super + p
   $DOTFILES/.scripts/switch-screen.sh
 
+# calculator button for flex
+XF86Calculator
+  qalculate-gtk
+
 #
 # bspwm hotkeys
 #
