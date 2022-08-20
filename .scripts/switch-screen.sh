@@ -5,7 +5,7 @@ switch_to_desktop() {
 }
 
 switch_to_laptop() {
-  xrandr --output eDP-1 --primary --mode 1920x1080 --refresh 120 --output HDMI-1 --off
+  xrandr --output HDMI-1 --off --output eDP-1 --primary --mode 1920x1080 --refresh 120
 }
 
 CURRENT_DISPLAY="$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')"
