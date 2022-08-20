@@ -25,7 +25,8 @@ bspc config pointer_action3 resize_corner
 bspc config pointer_motion_interval 1ms
 
 # Colors
-bash colors &
+bspc config focused_border_color "#A53841"
+bspc config normal_border_color "#000000"
 
 # Set wallpaper
 feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
@@ -46,6 +47,6 @@ done
 # Launch services
 sxhkd &
 polybar main -r &
-picom -C -b --experimental-backends
+picom -b --experimental-backends
 unclutter --timeout 2 &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
