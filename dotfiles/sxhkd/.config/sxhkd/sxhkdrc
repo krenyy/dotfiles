@@ -43,10 +43,10 @@ ctrl + super + q
   rofi -show menu -modi "menu:rofi-power-menu --choices=suspend/shutdown/reboot/hibernate"
 
 XF86MonBrightnessUp
-  xbacklight -inc 5
+  xbacklight -steps 5 -inc 4
 
 XF86MonBrightnessDown
-  xbacklight -dec 5
+  xbacklight -steps 5 -dec 4
 
 XF86AudioMute
   amixer set Master toggle
