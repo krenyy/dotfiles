@@ -16,7 +16,7 @@ super + d
 
 # program launcher
 super + space
-	rofi -show run
+	rofi -disable-history -show run
 
 # clipmenu
 super + v
