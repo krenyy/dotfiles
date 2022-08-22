@@ -24,5 +24,3 @@ if [ "$CURRENT_DISPLAY" == "eDP-1" ]; then
 else
   switch_to_laptop
 fi
-
-bspc wm -r
