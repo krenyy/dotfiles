@@ -57,6 +57,9 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
   pactl -- set-sink-volume 0 -5%
 
+XF86AudioPlay
+  mpc toggle && $DOTFILES/.scripts/mpd-info.sh
+
 # laptop switch-screen button is actually just this
 super + p
   $DOTFILES/.scripts/switch-screen.sh
