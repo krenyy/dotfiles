@@ -17,6 +17,35 @@
 # . $DOTFILES/.scripts/proton-nonsteam.sh
 # ---
 
+# default runtime values
+export PROTON="${PROTON:-/usr/share/steam/compatibilitytools.d/proton-ge-custom/proton}"
+
+export WINE_FULLSCREEN_FSR="${WINE_FULLSCREEN_FSR:-1}"
+export WINE_FULLSCREEN_FSR_STRENGTH="${WINE_FULLSCREEN_FSR_STRENGTH:-2}"
+
+export MANGOHUD="${MANGOHUD:-1}"
+_MANGOHUD_CONFIG=(
+  gpu_stats
+  gpu_temp
+  gpu_core_clock
+  gpu_mem_clock
+  gpu_power
+  cpu_stats
+  cpu_temp
+  cpu_power
+  cpu_mhz
+  vram
+  ram
+  swap
+  no_display
+  toggle_hud=Shift_R+F12
+)
+export MANGOHUD_CONFIG="${MANGOHUD_CONFIG:-$(
+  IFS=,
+  echo "${_MANGOHUD_CONFIG[*]}"
+)}"
+# ---
+
 cd "$(dirname "$0")"
 export SCRIPT_NAME="$0"
 
