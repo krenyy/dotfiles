@@ -3,7 +3,10 @@ local map = utils.map
 
 require("bufferline").setup({
 	options = {
-		indicator_icon = " ",
+    indicator = {
+      style = 'icon',
+      icon = " ",
+    },
 		offsets = { { filetype = "NvimTree" } },
 		show_close_icon = false,
 		separator_style = { "", "" },
