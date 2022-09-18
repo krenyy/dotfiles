@@ -1,6 +1,7 @@
 set -x PATH "/usr/bin/vendor_perl:$PATH"
 set -x PATH "$HOME/.local/bin:$PATH"
 set -x PATH "$CARGO_HOME/bin:$PATH"
+set -x PATH "$HOME/.dotnet/tools:$PATH"
 
 # set dotfiles directory
 set -x DOTFILES "$HOME/.dotfiles"
