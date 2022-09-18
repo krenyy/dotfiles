@@ -19,7 +19,7 @@ if [ "$N_OF_DISPLAYS" -ne 2 ]; then
   exit
 fi
 
-if [ "$CURRENT_DISPLAY" == "eDP-1" ]; then
+if [ "$CURRENT_DISPLAY" = "eDP-1" ]; then
   switch_to_desktop
 else
   switch_to_laptop
