@@ -12,7 +12,7 @@ super + w
 
 # chat client
 super + d
-	discord --use-gl=desktop
+	discord
 
 # program launcher
 super + space
