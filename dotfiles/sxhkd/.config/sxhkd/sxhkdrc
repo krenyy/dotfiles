@@ -38,10 +38,6 @@ super + {minus, equal}
 {shift,_} + Print
 	flameshot {gui,screen -c}
 
-# add power menu
-ctrl + super + q
-  rofi -show menu -modi "menu:rofi-power-menu --choices=suspend/shutdown/reboot/hibernate"
-
 XF86MonBrightnessUp
   xbacklight -steps 5 -inc 4
 
