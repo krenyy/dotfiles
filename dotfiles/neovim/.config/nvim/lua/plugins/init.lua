@@ -111,7 +111,13 @@ require("packer").startup(function(use)
 	use("matze/vim-move")
 	use("farmergreg/vim-lastplace")
 	use("haya14busa/is.vim")
-	use("tyru/caw.vim")
+	-- use("tyru/caw.vim")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	use({
 		"phaazon/hop.nvim",
