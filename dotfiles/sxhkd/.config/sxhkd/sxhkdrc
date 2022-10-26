@@ -8,7 +8,7 @@ super + Return
 
 # web browser
 super + w
-	brave
+	firefox
 
 # chat client
 super + d
