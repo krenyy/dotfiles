@@ -47,6 +47,6 @@ done
 # Launch services
 sxhkd &
 polybar main -r &
-picom -b --experimental-backends
+picom -b
 unclutter --timeout 2 &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
