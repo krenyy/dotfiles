@@ -20,6 +20,7 @@ set -x XDG_STATE_HOME "$HOME/.local/state"
 
 # clean up $HOME
 set -x ANDROID_HOME "$XDG_DATA_HOME/android"
+set -x MATHEMATICA_USERBASE "$XDG_CONFIG_HOME/mathematica"
 set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -x CUDA_CACHE_PATH "$XDG_CACHE_HOME/nv"
 set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"

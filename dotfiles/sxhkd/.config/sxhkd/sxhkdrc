@@ -26,10 +26,6 @@ super + v
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# change keyboard layout
-super + shift + {e, c}
-	setxkbmap {'us', 'cz(qwerty)'}
-
 # change opacity
 super + {minus, equal}
 	picom-trans -c {'-10', '+10'}
