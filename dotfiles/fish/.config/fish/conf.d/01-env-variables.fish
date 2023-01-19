@@ -1,5 +1,7 @@
 set -x PATH "/usr/bin/vendor_perl:$PATH"
 set -x PATH "$HOME/.local/bin:$PATH"
+set -x PATH "$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
+set -x PATH "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin:$PATH"
 set -x PATH "$CARGO_HOME/bin:$PATH"
 set -x PATH "$HOME/.dotnet/tools:$PATH"
 
