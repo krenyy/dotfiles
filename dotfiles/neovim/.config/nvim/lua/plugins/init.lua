@@ -25,14 +25,6 @@ require("packer").startup(function(use)
 	})
 
 	use({
-		"mfussenegger/nvim-dap",
-		requires = "rcarriga/nvim-dap-ui",
-		config = function()
-			require("plugins.dap")
-		end,
-	})
-
-	use({
 		"nvim-treesitter/nvim-treesitter",
 		requires = "p00f/nvim-ts-rainbow",
 		run = ":TSUpdate",
