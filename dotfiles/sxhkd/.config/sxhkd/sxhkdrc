@@ -8,11 +8,11 @@ super + Return
 
 # web browser
 super + w
-	firefox
+	brave
 
 # chat client
 super + d
-	discord
+	armcord
 
 # program launcher
 super + space
@@ -35,10 +35,10 @@ super + {minus, equal}
 	flameshot {gui,screen -c}
 
 XF86MonBrightnessUp
-  xbacklight -steps 5 -inc 4
+  xbacklight -inc 2 -steps 10
 
 XF86MonBrightnessDown
-  xbacklight -steps 5 -dec 4
+  xbacklight -dec 2 -steps 10
 
 XF86AudioMute
   amixer set Master toggle
