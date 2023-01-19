@@ -32,21 +32,24 @@ bspc config normal_border_color "#000000"
 feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
 
 # Kill services to prevent duplicates
-for srv in sxhkd polybar picom unclutter redshift; do
-  while :; do
-    PID=$(pidof $srv)
+kill_service() {
+  while true; do
+    PID="$(pidof $1)"
     if [[ -z $PID ]]; then
       break
     fi
     kill $PID
-    unset PID
-    sleep 0.1
   done
+}
+
+for srv in sxhkd polybar picom unclutter redshift; do
+  kill_service $srv &
 done
+wait
 
 # Launch services
 sxhkd &
 polybar main -r &
-picom -b
+picom &
 unclutter --timeout 2 &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
