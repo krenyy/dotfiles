@@ -9,4 +9,5 @@ if status is-interactive
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"
     end
+    echo "uwu"
 end
