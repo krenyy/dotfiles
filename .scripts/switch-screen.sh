@@ -1,11 +1,11 @@
 #!/bin/sh
 
 switch_to_desktop() {
-  xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 2560x1440 --refresh 144
+  xrandr --output eDP --off --output HDMI-A-0 --primary --mode 2560x1440 --refresh 144
 }
 
 switch_to_laptop() {
-  xrandr --output HDMI-1 --off --output eDP-1 --primary --mode 1920x1080 --refresh 120
+  xrandr --output HDMI-A-0 --off --output eDP --primary --mode 1920x1080 --refresh 120
 }
 
 CURRENT_DISPLAY="$(xrandr --listactivemonitors | grep -v Monitors | grep -Eo '[^ ]+$')"
@@ -19,8 +19,5 @@ if [ "$N_OF_DISPLAYS" -ne 2 ]; then
   exit
 fi
 
-if [ "$CURRENT_DISPLAY" = "eDP-1" ]; then
-  switch_to_desktop
-else
-  switch_to_laptop
-fi
+[ "$CURRENT_DISPLAY" = "eDP" ] && switch_to_desktop || switch_to_laptop
+bspc wm -r && sleep 2 && bspc wm -r

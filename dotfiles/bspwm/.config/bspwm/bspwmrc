@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Prevent multiple restarts at one time
+touch /tmp/bspwm.lock
+
 # Handle external monitor
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
@@ -29,13 +32,13 @@ bspc config focused_border_color "#A53841"
 bspc config normal_border_color "#000000"
 
 # Set wallpaper
-feh --no-fehbg --bg-scale $DOTFILES/.wallpapers/.current
+feh --no-fehbg --bg-scale "$DOTFILES"/.wallpapers/.current
 
 # Kill services to prevent duplicates
 kill_service() {
   while true; do
     PID="$(pidof $1)"
-    if [[ -z $PID ]]; then
+    if [ -z $PID ]; then
       break
     fi
     kill $PID
@@ -53,3 +56,5 @@ polybar main -r &
 picom &
 unclutter --timeout 2 &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
+
+rm /tmp/bspwm.lock
