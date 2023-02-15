@@ -1,0 +1,68 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 4,
+  "modules-left": [
+    "idle_inhibitor",
+    "cpu",
+    "memory",
+    "battery",
+    "backlight",
+    "pulseaudio",
+    "network"
+  ],
+  "modules-center": ["wlr/workspaces"],
+  "modules-right": ["clock"],
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "interval": 3,
+    "format": " {}%"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "brightnessctl s +5%",
+    "on-scroll-down": "brightnessctl s 5%-",
+    "smooth-scrolling-threshold": 2.5
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": ["奄", "奔", "墳"],
+    "smooth-scrolling-threshold": 1.5
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{: %a %e. %b %Y - %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "wlr/workspaces": {
+    "sort-by-number": true
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  }
+}

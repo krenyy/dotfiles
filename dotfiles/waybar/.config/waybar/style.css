@@ -1,0 +1,72 @@
+* {
+  font-family: Iosevka Nerd Font;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #f53c3c;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0);
+}
+
+#workspaces button.active {
+  color: #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #ffffff;
+}
+
+#idle_inhibitor,
+#cpu,
+#memory,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#clock {
+  padding: 0 10px;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#battery.charging {
+  color: #99ff00;
+}
+
+#battery.warning:not(.charging),
+#idle_inhibitor.activated {
+  color: #ffa500;
+}
+
+#battery.critical:not(.charging),
+#pulseaudio.muted,
+#network.disconnected {
+  color: #f53c3c;
+}

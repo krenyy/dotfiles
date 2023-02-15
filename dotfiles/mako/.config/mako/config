@@ -1,0 +1,6 @@
+background-color=#000000cc
+border-color=#b4b4b4ff
+border-size=1
+font=Iosevka Nerd Font 10
+format=%a\n<b>%s</b>\n%b
+text-color=#ffffffff

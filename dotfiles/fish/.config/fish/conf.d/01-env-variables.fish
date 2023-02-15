@@ -11,8 +11,6 @@ set -x DOTFILES "$HOME/.dotfiles"
 # set default programs
 set -x EDITOR nvim
 set -x TERMINAL alacritty
-# disable dpi scaling for alacritty
-set -x WINIT_X11_SCALE_FACTOR 1
 
 # set xdg variables
 set -x XDG_CACHE_HOME "$HOME/.cache"
@@ -35,9 +33,6 @@ set -x NUGET_PACKAGES "$XDG_CACHE_HOME/NuGetPackages"
 set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/password-store"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
-
-# fix jetbrains software in bspwm
-set -x _JAVA_AWT_WM_NONREPARENTING 1
 
 # `bat` as `man` pager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
