@@ -4,6 +4,7 @@ set -x PATH "$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gn
 set -x PATH "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin:$PATH"
 set -x PATH "$CARGO_HOME/bin:$PATH"
 set -x PATH "$HOME/.dotnet/tools:$PATH"
+set -x PATH "/opt/cuda/bin:$PATH"
 
 # set dotfiles directory
 set -x DOTFILES "$HOME/.dotfiles"
