@@ -1,0 +1,20 @@
+[user]
+	name = Martin Kröner
+	email = kronerm9@gmail.com
+	signingkey = F0A6B323F40205E8C504C6E11ADA1E881060610E
+[core]
+	autocrlf = input
+[init]
+	defaultBranch = main
+[credential]
+	helper = libsecret
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[tag]
+  gpgsign = true
+[include]
+  path = "./aliases"
+[includeIf "hasconfig:remote.*.url:**gitlab.fit.cvut.cz:**/**"]
+  path = "./fit"

@@ -1,0 +1,11 @@
+[alias]
+  a = add
+  c = commit
+  cm = commit -m
+  d = diff
+  ds = diff --staged
+  l = log
+  ll = log --graph --pretty=oneline --abbrev-commit --all
+  r = restore
+  rs = restore --staged
+  s = status --short --branch
