@@ -34,17 +34,13 @@ require("packer").startup(function(use)
 	})
 
 	use({
-		"hrsh7th/nvim-cmp",
+		"ms-jpq/coq_nvim",
+		branch = "coq",
 		requires = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-omni",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
+			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
 		},
 		config = function()
-			require("plugins.cmp")
+			require("plugins.coq")
 		end,
 	})
 
