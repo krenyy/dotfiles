@@ -1,6 +1,7 @@
 [alias]
   a = add
   c = commit
+  ca = commit --amend
   cm = commit -m
   d = diff
   ds = diff --staged
