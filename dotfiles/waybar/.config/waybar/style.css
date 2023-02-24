@@ -6,8 +6,14 @@
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
   color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  background: inherit;
 }
 
 #workspaces button {
@@ -17,6 +23,9 @@ window#waybar {
 
 #workspaces button:hover {
   background: rgba(0, 0, 0, 0);
+  border: 0;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button.active {
@@ -25,11 +34,6 @@ window#waybar {
 
 #workspaces button.urgent {
   background-color: #eb4d4b;
-}
-
-#mode {
-  background-color: #64727d;
-  border-bottom: 3px solid #ffffff;
 }
 
 #idle_inhibitor,
