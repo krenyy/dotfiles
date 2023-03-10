@@ -41,3 +41,6 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # gpg-agent as ssh-agent
 set -e SSH_AGENT_PID
 set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+
+# firefox with wayland
+set -x MOZ_ENABLE_WAYLAND 1
