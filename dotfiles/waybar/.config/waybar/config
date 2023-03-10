@@ -42,6 +42,7 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-icons": ["奄", "奔", "墳"],
+    "ignored-sinks": ["virtual-sink"],
     "smooth-scrolling-threshold": 1.5
   },
   "network#1": {
