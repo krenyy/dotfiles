@@ -9,7 +9,8 @@
     "battery",
     "backlight",
     "pulseaudio",
-    "network"
+    "network#1",
+    "network#2"
   ],
   "modules-center": ["wlr/workspaces"],
   "modules-right": ["clock"],
@@ -43,12 +44,19 @@
     "format-icons": ["奄", "奔", "墳"],
     "smooth-scrolling-threshold": 1.5
   },
-  "network": {
+  "network#1": {
+    "interface": "e0",
+    "format-ethernet": " {ifname}",
+    "format-linked": " {ifname}",
+    "format-disconnected": " {ifname}",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}"
+  },
+  "network#2": {
+    "interface": "w0",
     "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": " {ipaddr}/{cidr}",
-    "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
-    "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "⚠ Disconnected"
+    "format-linked": " {essid} ({signalStrength}%)",
+    "format-disconnected": " {ifname}",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}"
   },
   "clock": {
     "interval": 1,
