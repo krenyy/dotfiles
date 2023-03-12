@@ -11,7 +11,7 @@ set -x DOTFILES "$HOME/.dotfiles"
 
 # set default programs
 set -x EDITOR nvim
-set -x TERMINAL alacritty
+set -x TERMINAL foot
 
 # set xdg variables
 set -x XDG_CACHE_HOME "$HOME/.cache"
