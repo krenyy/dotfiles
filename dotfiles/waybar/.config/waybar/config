@@ -15,10 +15,11 @@
   "modules-center": ["wlr/workspaces"],
   "modules-right": ["clock"],
   "cpu": {
+    "interval": 1,
     "format": " {usage}%"
   },
   "memory": {
-    "interval": 3,
+    "interval": 1,
     "format": " {}%"
   },
   "battery": {
