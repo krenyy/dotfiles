@@ -579,6 +579,13 @@ local plugins = {
 			vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	},
 }
 
 require("lazy").setup(plugins, {})
