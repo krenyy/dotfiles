@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.mapleader = "\\"
+vim.g.mapleader = " "
 vim.o.expandtab = true
 vim.o.number = true
 vim.o.relativenumber = true
@@ -23,6 +23,50 @@ vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.undofile = true
+
+vim.cmd([[
+au TextYankPost * silent! lua require("vim.highlight").on_yank({ higroup = 'IncSearch', timeout = 300 })
+]])
+
+local gen_notify = function(original_fn)
+	return function(msg, level, opts)
+		if
+			msg:match(
+				"warning: multiple different client offset_encodings detected for buffer, this is not supported yet"
+			)
+		then
+			return
+		end
+		original_fn(msg, level, opts)
+	end
+end
+
+local notify = vim.notify
+local notify_once = vim.notify_once
+vim.notify = gen_notify(notify)
+vim.notify_once = gen_notify(notify_once)
+
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>e",
+	vim.diagnostic.open_float,
+	{ noremap = true, silent = true, desc = "Diagnostic: Open float" }
+)
+vim.keymap.set(
+	"n",
+	"[d",
+	vim.diagnostic.goto_prev,
+	{ noremap = true, silent = true, desc = "Diagnostic: Go to previous" }
+)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, desc = "Diagnostic: Go to next" })
+vim.keymap.set(
+	"n",
+	"<leader>q",
+	vim.diagnostic.setloclist,
+	{ noremap = true, silent = true, desc = "Diagnostic: List" }
+)
 
 local plugins = {
 	{
@@ -47,144 +91,136 @@ local plugins = {
 			"folke/neodev.nvim",
 		},
 		config = function()
+			local setup_keymaps = function(bufnr)
+				vim.keymap.set(
+					"n",
+					"gD",
+					vim.lsp.buf.declaration,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to declaration" }
+				)
+				vim.keymap.set(
+					"n",
+					"gd",
+					vim.lsp.buf.definition,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to definition" }
+				)
+				vim.keymap.set(
+					"n",
+					"K",
+					vim.lsp.buf.hover,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Hover" }
+				)
+				vim.keymap.set(
+					"n",
+					"gi",
+					vim.lsp.buf.implementation,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to implementation" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>wa",
+					vim.lsp.buf.add_workspace_folder,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "Workspace: Add folder" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>wr",
+					vim.lsp.buf.remove_workspace_folder,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "Workspace: Remove folder" }
+				)
+				vim.keymap.set("n", "<leader>wl", function()
+					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				end, { noremap = true, silent = true, buffer = bufnr, desc = "Workspace: List folders" })
+				vim.keymap.set(
+					"n",
+					"<leader>D",
+					vim.lsp.buf.type_definition,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to type definition" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>rn",
+					vim.lsp.buf.rename,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Rename" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>ca",
+					vim.lsp.buf.code_action,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Code action" }
+				)
+				vim.keymap.set(
+					"n",
+					"gr",
+					vim.lsp.buf.references,
+					{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: References" }
+				)
+				vim.keymap.set("n", "<leader>cf", function()
+					vim.lsp.buf.format({ async = true })
+				end, { noremap = true, silent = true, buffer = bufnr, desc = "LSP: Format" })
+			end
+			local lsp_formatting = function(bufnr)
+				vim.lsp.buf.format({
+					filter = function(client)
+						local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+						local method = require("null-ls").methods.FORMATTING
+						local supported_by_null_ls = next(require("null-ls.sources").get_available(filetype, method))
+							~= nil
+						return (
+							(supported_by_null_ls and client.name == "null-ls")
+							or ((not supported_by_null_ls) and not (client.name == "null-ls"))
+						)
+					end,
+					bufnr = bufnr,
+				})
+			end
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			local on_attach = function(client, bufnr)
+				setup_keymaps(bufnr)
+				if not client.supports_method("textDocument/formatting") then
+					return
+				end
+				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = augroup,
+					buffer = bufnr,
+					callback = function()
+						lsp_formatting(bufnr)
+					end,
+				})
+				require("ufo").setup()
+			end
+
 			require("neodev").setup()
 			require("mason-lspconfig").setup({ automatic_installation = true })
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
-					local lsp_formatting = function(bufnr)
-						vim.lsp.buf.format({
-							filter = function(client)
-								local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-								local method = require("null-ls").methods.FORMATTING
-								local supported_by_null_ls = next(
-									require("null-ls.sources").get_available(filetype, method)
-								) ~= nil
-								return (
-									(supported_by_null_ls and client.name == "null-ls")
-									or ((not supported_by_null_ls) and not (client.name == "null-ls"))
-								)
-							end,
-							bufnr = bufnr,
-						})
-					end
-					local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-					local on_attach = function(client, bufnr)
-						if not client.supports_method("textDocument/formatting") then
-							return
-						end
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								lsp_formatting(bufnr)
-							end,
-						})
-
-						vim.keymap.set(
-							"n",
-							"gD",
-							vim.lsp.buf.declaration,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to declaration" }
-						)
-						vim.keymap.set(
-							"n",
-							"gd",
-							vim.lsp.buf.definition,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to definition" }
-						)
-						vim.keymap.set(
-							"n",
-							"K",
-							vim.lsp.buf.hover,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Hover" }
-						)
-						vim.keymap.set(
-							"n",
-							"gi",
-							vim.lsp.buf.implementation,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to implementation" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>wa",
-							vim.lsp.buf.add_workspace_folder,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "Workspace: Add folder" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>wr",
-							vim.lsp.buf.remove_workspace_folder,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "Workspace: Remove folder" }
-						)
-						vim.keymap.set("n", "<leader>wl", function()
-							print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-						end, { noremap = true, silent = true, buffer = bufnr, desc = "Workspace: List folders" })
-						vim.keymap.set(
-							"n",
-							"<leader>D",
-							vim.lsp.buf.type_definition,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Go to type definition" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>rn",
-							vim.lsp.buf.rename,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Rename" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>ca",
-							vim.lsp.buf.code_action,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: Code action" }
-						)
-						vim.keymap.set(
-							"n",
-							"gr",
-							vim.lsp.buf.references,
-							{ noremap = true, silent = true, buffer = bufnr, desc = "LSP: References" }
-						)
-						vim.keymap.set("n", "<leader>cf", function()
-							vim.lsp.buf.format({ async = true })
-						end, { noremap = true, silent = true, buffer = bufnr, desc = "LSP: Format" })
-					end
 					require("lspconfig")[server_name].setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						capabilities,
 						on_attach = on_attach,
 					})
 				end,
+				["clangd"] = function()
+					require("lspconfig").clangd.setup({
+						capabilities,
+						on_attach = on_attach,
+						cmd = { "clangd", "--clang-tidy" },
+					})
+				end,
 				["rust_analyzer"] = function()
-					require("rust-tools").setup()
+					require("rust-tools").setup({
+						server = {
+							capabilities,
+							on_attach = on_attach,
+						},
+					})
 				end,
 			})
-			vim.keymap.set(
-				"n",
-				"<leader>e",
-				vim.diagnostic.open_float,
-				{ noremap = true, silent = true, desc = "Diagnostic: Open float" }
-			)
-			vim.keymap.set(
-				"n",
-				"[d",
-				vim.diagnostic.goto_prev,
-				{ noremap = true, silent = true, desc = "Diagnostic: Go to previous" }
-			)
-			vim.keymap.set(
-				"n",
-				"]d",
-				vim.diagnostic.goto_next,
-				{ noremap = true, silent = true, desc = "Diagnostic: Go to next" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>q",
-				vim.diagnostic.setloclist,
-				{ noremap = true, silent = true, desc = "Diagnostic: List" }
-			)
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-			vim.diagnostic.config({ float = { border = "single" } })
 		end,
 	},
 	{
@@ -200,12 +236,10 @@ local plugins = {
 		"jay-babu/mason-null-ls.nvim",
 		config = function()
 			require("mason")
-			require("mason-null-ls").setup({
-				automatic_setup = true,
-			})
+			require("mason-null-ls").setup({ automatic_setup = true })
 			require("null-ls").setup()
 
-			require("mason-null-ls").setup_handlers()
+			require("mason-null-ls").setup_handlers({})
 		end,
 		dependencies = { { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } } },
 	},
@@ -231,24 +265,18 @@ local plugins = {
 				builtin.live_grep,
 				{ noremap = true, silent = true, desc = "Telescope: Live grep" }
 			)
-			vim.keymap.set(
-				"n",
-				"<leader>b",
-				builtin.buffers,
-				{ noremap = true, silent = true, desc = "Telescope: Buffers" }
-			)
 		end,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
 		config = function()
 			vim.o.background = "dark"
-			vim.cmd([[colorscheme gruvbox]])
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 	{
 		"saecki/crates.nvim",
-		-- tag = "v0.3.0",
 		event = { "BufRead Cargo.toml", "BufWritePre Cargo.toml" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -262,7 +290,6 @@ local plugins = {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-git",
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-path",
 
 			"dcampos/nvim-snippy",
@@ -290,7 +317,6 @@ local plugins = {
 				}),
 				sources = cmp.config.sources({
 					{ name = "buffer" },
-					{ name = "cmdline" },
 					{ name = "crates" },
 					{ name = "git" },
 					{ name = "nvim_lsp" },
@@ -333,7 +359,7 @@ local plugins = {
 		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 	},
 	{
@@ -349,27 +375,32 @@ local plugins = {
 		config = function()
 			local bufferline = require("bufferline")
 			bufferline.setup()
-			vim.keymap.set("n", "]b", function()
+			vim.keymap.set("n", "<A-.>", function()
 				bufferline.cycle(1)
-			end, { noremap = true, silent = true, desc = "Bufferline: Cycle next" })
-			vim.keymap.set("n", "[b", function()
+			end, { silent = true, desc = "Bufferline: Cycle next" })
+			vim.keymap.set("n", "<A-,>", function()
 				bufferline.cycle(-1)
-			end, { noremap = true, silent = true, desc = "Bufferline: Cycle previous" })
-			vim.keymap.set("n", "}", function()
+			end, { silent = true, desc = "Bufferline: Cycle previous" })
+			vim.keymap.set("n", "<A-S-.>", function()
 				bufferline.move(1)
-			end, { noremap = true, silent = true, desc = "Bufferline: Move next" })
-			vim.keymap.set("n", "{", function()
+			end, { silent = true, desc = "Bufferline: Move next" })
+			vim.keymap.set("n", "<A-S-,>", function()
 				bufferline.move(-1)
-			end, { noremap = true, silent = true, desc = "Bufferline: Move previous" })
-			vim.keymap.set("n", "<leader>d", function()
-				vim.cmd([[bd]])
-			end, { noremap = true, silent = true, desc = "Bufferline: Close" })
-			vim.keymap.set("n", "<leader>D", function()
-				vim.cmd([[bd!]])
-			end, { noremap = true, silent = true, desc = "Bufferline: Close (force)" })
+			end, { silent = true, desc = "Bufferline: Move previous" })
+			vim.keymap.set("n", "<A-c>", function()
+				vim.cmd(":bd")
+			end, { silent = true, desc = "Bufferline: Close buffer" })
+			vim.keymap.set("n", "<A-C>", function()
+				vim.cmd(":bd!")
+			end, { silent = true, desc = "Bufferline: Close buffer (force)" })
 		end,
 	},
-	{ "vladdoster/remember.nvim", config = [[ require('remember') ]] },
+	{
+		"vladdoster/remember.nvim",
+		config = function()
+			require("remember")
+		end,
+	},
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
@@ -391,8 +422,134 @@ local plugins = {
 			end, { noremap = true, silent = true, desc = "Tree: Toggle" })
 		end,
 	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap", "jay-babu/mason-nvim-dap.nvim" },
+		config = function()
+			require("mason")
+			require("mason-nvim-dap").setup({ automatic_setup = true })
+			require("mason-nvim-dap").setup_handlers({})
+
+			local dap = require("dap")
+			vim.keymap.set(
+				"n",
+				"<leader>db",
+				dap.toggle_breakpoint,
+				{ noremap = true, silent = true, desc = "DAP: Toggle breakpoint" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>dso",
+				dap.step_over,
+				{ noremap = true, silent = true, desc = "DAP: Step over" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>dsi",
+				dap.step_into,
+				{ noremap = true, silent = true, desc = "DAP: Step into" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>dc",
+				dap.continue,
+				{ noremap = true, silent = true, desc = "DAP: Launch/continue" }
+			)
+			vim.keymap.set("n", "<leader>dt", dap.terminate, { noremap = true, silent = true, desc = "DAP: Terminate" })
+			vim.keymap.set("n", "<leader>dr", dap.repl.open, { noremap = true, silent = true, desc = "DAP: Open REPL" })
+
+			require("dapui").setup()
+			vim.keymap.set(
+				"n",
+				"<leader>du",
+				require("dapui").toggle,
+				{ noremap = true, silent = true, desc = "DAP: Open UI" }
+			)
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	{
+		"freddiehaddad/feline.nvim",
+		config = function()
+			require("feline").setup()
+		end,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.opt.list = true
+			vim.opt.listchars:append({ space = "⋅" })
+			vim.opt.listchars:append({ eol = "↴" })
+
+			require("indent_blankline").setup({
+				show_current_context = true,
+			})
+		end,
+	},
+	{
+		"fedepujol/move.nvim",
+		config = function()
+			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<A-j>", ":MoveLine(1)<CR>", opts)
+			vim.keymap.set("n", "<A-k>", ":MoveLine(-1)<CR>", opts)
+			vim.keymap.set("n", "<A-h>", ":MoveHChar(-1)<CR>", opts)
+			vim.keymap.set("n", "<A-l>", ":MoveHChar(1)<CR>", opts)
+
+			vim.keymap.set("v", "<A-j>", ":MoveBlock(1)<CR>", opts)
+			vim.keymap.set("v", "<A-k>", ":MoveBlock(-1)<CR>", opts)
+			vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", opts)
+			vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", opts)
+		end,
+	},
+	"haya14busa/is.vim",
+	{
+		"ellisonleao/glow.nvim",
+		config = function()
+			require("glow").setup()
+			vim.keymap.set(
+				"n",
+				"<leader>mpr",
+				":Glow README.md<CR>",
+				{ noremap = true, silent = true, desc = "Markdown preview: README.md" }
+			)
+		end,
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
+		config = function()
+			vim.o.foldcolumn = "1"
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+		end,
+	},
+	{
+		"stevearc/aerial.nvim",
+		config = function()
+			require("aerial").setup({
+				on_attach = function(bufnr)
+					vim.keymap.set("n", "<leader>{", "<cmd>AerialNext<CR>", { buffer = bufnr })
+					vim.keymap.set("n", "<leader>}", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+				end,
+			})
+			vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+		end,
+	},
 }
 
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, {})
