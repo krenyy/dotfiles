@@ -48,6 +48,10 @@ vim.notify_once = gen_notify(notify_once)
 
 vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>p", '"+p', { noremap = true, silent = true })
 vim.keymap.set(
 	"n",
 	"<leader>e",
