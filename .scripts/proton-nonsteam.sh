@@ -1,4 +1,4 @@
-#!/bin/echo this file is meant to be sourced, not executed directly!
+#!/bin/echo MEANT_TO_BE_SOURCED!
 
 # --- EXAMPLE FILE
 # #!/bin/bash
@@ -46,29 +46,31 @@ export MANGOHUD_CONFIG="${MANGOHUD_CONFIG:-$(
 )}"
 # ---
 
-cd "$(dirname "$0")"
-export SCRIPT_NAME="$0"
+cd "$(dirname "$0")" || (echo "cd failed" >&2 && exit)
 
-export STEAM_COMPAT_CLIENT_INSTALL_PATH=/dev/null
-export STEAM_COMPAT_DATA_PATH="$(realpath ./.prefix)"
+STEAM_COMPAT_CLIENT_INSTALL_PATH=/dev/null
+STEAM_COMPAT_DATA_PATH="$(realpath ./.prefix)"
 mkdir -p "$STEAM_COMPAT_DATA_PATH"
+
+export STEAM_COMPAT_CLIENT_INSTALL_PATH
+export STEAM_COMPAT_DATA_PATH
 
 # symlink home directory from outside the prefix
 # this allows for easy prefix regeneration without losing data
-export HOME_DIR="$(realpath ./.home)"
+HOME_DIR="$(realpath ./.home)"
 mkdir -p "$HOME_DIR"
-export USERS_DIR="$STEAM_COMPAT_DATA_PATH/pfx/drive_c/users"
+USERS_DIR="$STEAM_COMPAT_DATA_PATH/pfx/drive_c/users"
 mkdir -p "$USERS_DIR"
-export STEAMUSER_DIR="$USERS_DIR/steamuser"
-[ -d "$STEAMUSER_DIR" -a ! -L "$STEAMUSER_DIR" ] && rm -rf "$STEAMUSER_DIR"
+STEAMUSER_DIR="$USERS_DIR/steamuser"
+[ -d "$STEAMUSER_DIR" ] && [ ! -L "$STEAMUSER_DIR" ] && rm -rf "$STEAMUSER_DIR"
 ln -fnrs "$HOME_DIR" "$STEAMUSER_DIR"
 
-export EXE_DIR="$(dirname "$EXE_PATH")"
-export EXE="$(basename "$EXE_PATH")"
+EXE_DIR="$(dirname "$EXE_PATH")"
+EXE="$(basename "$EXE_PATH")"
 
 case "$1" in
 "")
-  cd "$EXE_DIR"
+  cd "$EXE_DIR" || (echo "cd failed" >&2 && exit)
   "$PROTON" run "$EXE" "$LAUNCH_OPTIONS"
   ;;
 *)
