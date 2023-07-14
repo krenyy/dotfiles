@@ -21,12 +21,13 @@ set -x XDG_STATE_HOME "$HOME/.local/state"
 
 # clean up $HOME
 set -x ANDROID_HOME "$XDG_DATA_HOME/android"
-set -x MATHEMATICA_USERBASE "$XDG_CONFIG_HOME/mathematica"
 set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -x CUDA_CACHE_PATH "$XDG_CACHE_HOME/nv"
+set -x DOT_SAGE "$XDG_CONFIG_HOME/sage"
 set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 set -x LESSHISTFILE -
+set -x MATHEMATICA_USERBASE "$XDG_CONFIG_HOME/mathematica"
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
 set -x NPM_CONFIG_USERCONFIG "$XDG_DATA_HOME/npm/config"
@@ -44,3 +45,6 @@ set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
 # firefox with wayland
 set -x MOZ_ENABLE_WAYLAND 1
+
+set -x VDPAU_DRIVER radeonsi
+set -x LIBVA_DRIVER_NAME radeonsi
