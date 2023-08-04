@@ -1,6 +1,7 @@
 theme = "kanagawa"
 
 [editor]
+true-color = true
 line-number = "relative"
 
 [editor.cursor-shape]
