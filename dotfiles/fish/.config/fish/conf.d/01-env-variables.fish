@@ -36,9 +36,6 @@ set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/password-store"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 
-# `bat` as `man` pager
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
 # gpg-agent as ssh-agent
 set -e SSH_AGENT_PID
 set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
