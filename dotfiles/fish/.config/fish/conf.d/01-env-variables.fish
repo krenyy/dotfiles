@@ -38,7 +38,7 @@ set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 
 # gpg-agent as ssh-agent
 set -e SSH_AGENT_PID
-set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+set -x SSH_AUTH_SOCK "$(gpgconf --list-dirs agent-ssh-socket)"
 
 # firefox with wayland
 set -x MOZ_ENABLE_WAYLAND 1
