@@ -1,7 +1,8 @@
 #!/bin/fish
 
 function run_xorg
-    bash -c "(xinit <(echo 'dwm & unclutter & $PROGRAM') -- -config headless/$(echo $MODE | cut -dx -f2 | cut -dH -f1).conf && killall sunshine) & DISPLAY=:0 sunshine"
+    echo "ignoring \"\$MODE\" == \"$MODE\""
+    bash -c "(xinit <(echo 'dwm & unclutter & $PROGRAM') && killall sunshine) & DISPLAY=:0 sunshine"
 end
 
 function run_wayland
@@ -39,7 +40,7 @@ end
 set MODE "$argv[1]"
 set PROTOCOL "$argv[2]"
 set PROGRAM "$argv[3]"
-[ -z $PROGRAM ] || [ "$PROGRAM" -eq "" ] && exit 1
+[ -z $PROGRAM ] || [ "$PROGRAM" = "" ] && exit 1
 switch $argv[2]
     case xorg
         run_xorg "$MODE"
