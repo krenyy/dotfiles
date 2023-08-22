@@ -5,6 +5,7 @@ if status is-interactive
     alias ls='exa -alH --group-directories-first'
     alias mv='mv -i'
     alias rm='rm -I'
+    alias vim='nvim'
 
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"

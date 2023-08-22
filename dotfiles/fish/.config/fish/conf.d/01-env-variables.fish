@@ -10,7 +10,7 @@ set -x PATH "/opt/cuda/bin:$PATH"
 set -x DOTFILES "$HOME/.dotfiles"
 
 # set default programs
-set -x EDITOR hx
+set -x editor nvim
 set -x TERMINAL foot
 
 # set xdg variables
