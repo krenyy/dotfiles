@@ -18,3 +18,7 @@
   path = "./aliases"
 [includeIf "hasconfig:remote.*.url:**gitlab.fit.cvut.cz:**/**"]
   path = "./fit"
+[includeIf "hasconfig:remote.*.url:**gitlab.com:**/**"]
+  path = "./gitlab"
+[includeIf "hasconfig:remote.*.url:**github.com:**/**"]
+  path = "./github"
