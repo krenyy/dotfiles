@@ -12,7 +12,7 @@
     "network#1",
     "network#2"
   ],
-  "modules-center": ["wlr/workspaces"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": ["clock"],
   "cpu": {
     "interval": 1,
@@ -64,9 +64,6 @@
     "interval": 1,
     "format": "{:󰃰 %a %e. %b %Y - %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-  "wlr/workspaces": {
-    "sort-by-number": true
   },
   "idle_inhibitor": {
     "format": "{icon}",
