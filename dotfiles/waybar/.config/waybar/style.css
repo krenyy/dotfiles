@@ -60,6 +60,10 @@ button:hover {
   margin-right: 0;
 }
 
+#battery {
+  background-color: transparent;
+}
+
 #battery.charging {
   color: #99ff00;
 }
