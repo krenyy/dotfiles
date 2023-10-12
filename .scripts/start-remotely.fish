@@ -1,8 +1,9 @@
 #!/bin/fish
 
 function run_xorg
-    echo "ignoring \"\$MODE\" == \"$MODE\""
-    bash -c "(xinit <(echo 'dwm & unclutter & $PROGRAM') && killall sunshine) & DISPLAY=:0 sunshine"
+    set REFRESH (echo "$MODE" | cut -d'@' -f2 | head -c-2)
+    set MODE (echo "$MODE" | cut -d'@' -f1)
+    bash -c "(xinit <(echo 'dwm & unclutter & xrandr --output DP-0 --mode $MODE -r $REFRESH && $PROGRAM') && killall sunshine) & DISPLAY=:0 sunshine"
 end
 
 function run_wayland
