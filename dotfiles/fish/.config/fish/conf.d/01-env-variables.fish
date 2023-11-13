@@ -43,5 +43,6 @@ set -x SSH_AUTH_SOCK "$(gpgconf --list-dirs agent-ssh-socket)"
 # firefox with wayland
 set -x MOZ_ENABLE_WAYLAND 1
 
+# explicit specification of video driver
 set -x VDPAU_DRIVER radeonsi
 set -x LIBVA_DRIVER_NAME radeonsi
