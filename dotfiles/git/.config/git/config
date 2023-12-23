@@ -22,3 +22,5 @@
   path = "./gitlab"
 [includeIf "hasconfig:remote.*.url:**github.com:**/**"]
   path = "./github"
+[includeIf "hasconfig:remote.*.url:**aur.archlinux.org:**"]
+  path = "./aur"
