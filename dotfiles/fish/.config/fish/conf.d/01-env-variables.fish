@@ -39,11 +39,22 @@ set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 
 # update PATH
-set -x PATH "$HOME/.dotnet/tools:$PATH"
-set -x PATH "$CARGO_HOME/bin:$PATH"
-set -x PATH "$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
-set -x PATH "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin:$PATH"
-set -x PATH "$HOME/.local/bin:$PATH"
+function prepend_path
+    if echo "$PATH" | grep -Fqv "$argv"
+        set -x PATH "$argv:$PATH"
+    end
+end
+function append_path
+    if echo "$PATH" | grep -Fqv "$argv"
+        set -x PATH "$PATH:$argv"
+    end
+end
+
+prepend_path "$HOME/.dotnet/tools"
+prepend_path "$CARGO_HOME/bin"
+prepend_path "$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin"
+prepend_path "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin"
+prepend_path "$HOME/.local/bin"
 
 # gpg-agent as ssh-agent
 set -e SSH_AGENT_PID
