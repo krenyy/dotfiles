@@ -11,6 +11,10 @@ set -x DOTFILES "$HOME/.dotfiles"
 set -x EDITOR nvim
 set -x TERMINAL foot
 
+# use `bat` as `man` pager
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x MANROFFOPT "-c"
+
 # set xdg variables
 set -x XDG_CACHE_HOME "$HOME/.cache"
 set -x XDG_CONFIG_HOME "$HOME/.config"
