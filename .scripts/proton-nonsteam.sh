@@ -22,6 +22,7 @@ export PROTON="${PROTON:-/usr/share/steam/compatibilitytools.d/proton-ge-custom/
 
 export WINE_FULLSCREEN_FSR="${WINE_FULLSCREEN_FSR:-1}"
 export WINE_FULLSCREEN_FSR_STRENGTH="${WINE_FULLSCREEN_FSR_STRENGTH:-2}"
+export USE_GAMESCOPE="${USE_GAMESCOPE:-0}"
 
 export MANGOHUD="${MANGOHUD:-1}"
 _MANGOHUD_CONFIG=(
@@ -68,13 +69,16 @@ ln -fnrs "$HOME_DIR" "$STEAMUSER_DIR"
 EXE_DIR="$(dirname "$EXE_PATH")"
 EXE="$(basename "$EXE_PATH")"
 
+GAMESCOPE="gamescope -b $(cat /sys/class/drm/*/modes | sort -n | tail -1 | sed -E 's/^/-W /;s/x/ -H /') --"
+[ "$USE_GAMESCOPE" -eq 0 ] && GAMESCOPE=""
+
 case "$1" in
 "")
 	cd "$EXE_DIR" || (echo "cd failed" >&2 && exit)
-	"$PROTON" run "$EXE" "$LAUNCH_OPTIONS"
+	$GAMESCOPE "$PROTON" run "$EXE" "$LAUNCH_OPTIONS"
 	;;
 *)
 	echo "running: $PROTON run" "${@:1}"
-	"$PROTON" run "${@:1}"
+	$GAMESCOPE "$PROTON" run "${@:1}"
 	;;
 esac
