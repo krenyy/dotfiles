@@ -6,6 +6,4 @@ if begin
 
     set -x GDK_SCALE 1
     set -x XCURSOR_SIZE 24
-
-    exec Hyprland
 end
