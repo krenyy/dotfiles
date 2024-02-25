@@ -6,6 +6,8 @@ if status is-interactive
     alias mv='mv -i'
     alias rm='rm -I'
     alias vim='nvim'
+    alias rs='rsync -ahP --info=progress2'
+    alias yes='no'
 
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"
