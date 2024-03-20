@@ -62,7 +62,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{:󰃰 %a %e. %b %Y - %H:%M}",
+    "format": "󰃰 {:%a %e. %b %Y - %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "idle_inhibitor": {
