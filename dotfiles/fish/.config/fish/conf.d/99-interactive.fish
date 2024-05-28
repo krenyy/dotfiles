@@ -9,6 +9,8 @@ if status is-interactive
     alias rs='rsync -ahP --info=progress2'
     alias yes='no'
 
+    set -x NMAP_PRIVILEGED
+
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"
     end
