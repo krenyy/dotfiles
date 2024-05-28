@@ -72,3 +72,6 @@ set -x QT_QPA_PLATFORM wayland
 
 # anki wayland
 set -x ANKI_WAYLAND 1
+
+# disable cows in ansible
+set -x ANSIBLE_NOCOWS 1
