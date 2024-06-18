@@ -77,6 +77,11 @@ case "$1" in
 	cd "$EXE_DIR" || (echo "cd failed" >&2 && exit)
 	$GAMESCOPE "$PROTON" run "$EXE" "$LAUNCH_OPTIONS"
 	;;
+"tricks")
+	PROTON_DIR="$(dirname "$PROTON")"
+	export WINEPREFIX="${STEAM_COMPAT_DATA_PATH}/pfx"
+	"${PROTON_DIR}"/protonfixes/winetricks "${@:2}"
+	;;
 *)
 	echo "running: $PROTON run" "${@:1}"
 	$GAMESCOPE "$PROTON" run "${@:1}"
