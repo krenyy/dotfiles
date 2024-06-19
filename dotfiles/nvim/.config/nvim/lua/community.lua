@@ -23,6 +23,7 @@ return {
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.toml" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.wgsl" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.zig" },
