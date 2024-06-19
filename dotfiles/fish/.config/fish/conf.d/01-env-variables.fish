@@ -55,6 +55,7 @@ prepend_path "$CARGO_HOME/bin"
 prepend_path "$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin"
 prepend_path "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin"
 prepend_path "$HOME/.local/bin"
+prepend_path "$DOTFILES/.scripts"
 
 # gpg-agent as ssh-agent
 set -e SSH_AGENT_PID
