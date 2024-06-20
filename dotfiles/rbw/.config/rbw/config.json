@@ -1,8 +1,4 @@
 {
   "email": "bitwarden@kroner.dev",
-  "base_url": null,
-  "identity_url": null,
-  "lock_timeout": 3600,
-  "pinentry": "pinentry-gnome3",
-  "client_cert_path": null
+  "pinentry": "pinentry-gnome3"
 }
