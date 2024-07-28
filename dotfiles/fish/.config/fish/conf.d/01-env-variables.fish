@@ -15,6 +15,9 @@ set -x TERMINAL foot
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -x MANROFFOPT "-c"
 
+# `delta` mouse scrolling
+set -x DELTA_PAGER "less -R --mouse"
+
 # set xdg variables
 set -x XDG_CACHE_HOME "$HOME/.cache"
 set -x XDG_CONFIG_HOME "$HOME/.config"
