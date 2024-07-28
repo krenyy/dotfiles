@@ -22,7 +22,7 @@ export PROTON="${PROTON:-/usr/share/steam/compatibilitytools.d/proton-ge-custom/
 
 export WINE_FULLSCREEN_FSR="${WINE_FULLSCREEN_FSR:-1}"
 export WINE_FULLSCREEN_FSR_STRENGTH="${WINE_FULLSCREEN_FSR_STRENGTH:-2}"
-export USE_GAMESCOPE="${USE_GAMESCOPE:-0}"
+export USE_GAMESCOPE="${USE_GAMESCOPE:-1}"
 
 export MANGOHUD="${MANGOHUD:-1}"
 _MANGOHUD_CONFIG=(
@@ -69,7 +69,7 @@ ln -fnrs "$HOME_DIR" "$STEAMUSER_DIR"
 EXE_DIR="$(dirname "$EXE_PATH")"
 EXE="$(basename "$EXE_PATH")"
 
-GAMESCOPE="gamescope -b $(cat /sys/class/drm/*/modes | sort -n | tail -1 | sed -E 's/^/-W /;s/x/ -H /') --"
+GAMESCOPE="gamescope -b $(cat /sys/class/drm/*/modes | sort -h | uniq | rofi -dmenu | sed -E 's/^/-W /;s/x/ -H /') -r $(printf '30\n60\n72\n90\n120\n144\n165\n240' | rofi -dmenu) --"
 [ "$USE_GAMESCOPE" -eq 0 ] && GAMESCOPE=""
 
 case "$1" in
@@ -80,6 +80,7 @@ case "$1" in
 "tricks")
 	PROTON_DIR="$(dirname "$PROTON")"
 	export WINEPREFIX="${STEAM_COMPAT_DATA_PATH}/pfx"
+	export PATH="${PROTON_DIR}/files/bin:${PATH}"
 	"${PROTON_DIR}"/protonfixes/winetricks "${@:2}"
 	;;
 *)
