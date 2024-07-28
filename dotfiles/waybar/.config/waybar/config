@@ -1,81 +1,24 @@
 {
   "layer": "top",
   "position": "top",
-  "spacing": 4,
+  "spacing": 6,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
   "modules-left": [
-    "idle_inhibitor",
     "cpu",
     "memory",
-    "custom/power_profile",
-    "battery",
-    "backlight",
     "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power_profile",
     "network#1",
-    "network#2"
+    "network#2",
+    "bluetooth",
   ],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["clock"],
-  "cpu": {
-    "interval": 1,
-    "format": " {usage}%"
-  },
-  "memory": {
-    "interval": 1,
-    "format": "󰍛 {}%"
-  },
-  "custom/power_profile": {
-    "interval": 1,
-    "exec": "cat /sys/devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/99D89064-8D50-42BB-BEA9-155B2E5D0FCD/tuxedo_platform_profile/platform_profile",
-    "format": "󰓅 {}"
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-scroll-up": "brightnessctl s +5%",
-    "on-scroll-down": "brightnessctl s 5%-",
-    "smooth-scrolling-threshold": 2.5
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "ignored-sinks": ["virtual-sink"],
-    "smooth-scrolling-threshold": 1.5
-  },
-  "network#1": {
-    "interface": "e0",
-    "format-ethernet": "󰈀 {ifname}",
-    "format-linked": "󰈀 {ifname}",
-    "format-disconnected": "󰈀 {ifname}",
-    "tooltip-format": "{ifname} via {ipaddr}/{cidr}"
-  },
-  "network#2": {
-    "interface": "w0",
-    "format-wifi": " {essid} ({signalStrength}%)",
-    "format-linked": " {essid} ({signalStrength}%)",
-    "format-disconnected": " {ifname}",
-    "tooltip-format": "{ifname} via {ipaddr}/{cidr}"
-  },
-  "clock": {
-    "interval": 1,
-    "format": "󰃰 {:%a %e. %b %Y - %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  }
+  "modules-center": [],
+  "modules-right": [
+    "clock",
+    "idle_inhibitor"
+  ],
 }

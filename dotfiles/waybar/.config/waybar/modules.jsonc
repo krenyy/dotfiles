@@ -1,0 +1,71 @@
+{
+  "clock": {
+    "interval": 1,
+    "format": "󰃰 {:%a %e. %b %Y - %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}%",
+  },
+  "memory": {
+    "interval": 1,
+    "format": "󰍛 {}%",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "ignored-sinks": ["virtual-sink"],
+    "smooth-scrolling-threshold": 1.5,
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "brightnessctl s +1%",
+    "on-scroll-down": "brightnessctl s 1%-",
+    "smooth-scrolling-threshold": 2.5,
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "network#1": {
+    "interface": "e0",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-linked": "󰈀  {ifname}",
+    "format-disconnected": "󰈀  {ifname}",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
+  },
+  "network#2": {
+    "interface": "w0",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-linked": "  {essid} ({signalStrength}%)",
+    "format-disconnected": "  {ifname}",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
+  },
+  "bluetooth": {
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "footclient bluetoothctl",
+  },
+  "custom/power_profile": {
+    "interval": 1,
+    "exec": "cat /sys/devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/99D89064-8D50-42BB-BEA9-155B2E5D0FCD/tuxedo_platform_profile/platform_profile",
+    "format": "󰓅 {}",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+  },
+}
