@@ -11,6 +11,7 @@
     "pulseaudio",
     "backlight",
     "battery",
+    "custom/power_draw",
     "custom/power_profile",
     "network#1",
     "network#2",

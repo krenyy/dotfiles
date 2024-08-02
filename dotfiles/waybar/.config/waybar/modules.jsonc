@@ -56,6 +56,11 @@
     "interval": 30,
     "on-click": "footclient bluetoothctl",
   },
+  "custom/power_draw": {
+    "interval": 1,
+    "exec": "$HOME/.config/waybar/power_draw.rs",
+    "format": "󱐌{} W  ",
+  },
   "custom/power_profile": {
     "interval": 1,
     "exec": "cat /sys/devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/99D89064-8D50-42BB-BEA9-155B2E5D0FCD/tuxedo_platform_profile/platform_profile",
