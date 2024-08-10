@@ -20,6 +20,8 @@
 	line-numbers = true
 [diff]
 	colorMoved = default
+[diff "xz"]
+	textconv = xzcat
 [merge]
 	conflictstyle = diff3
 [tag]
