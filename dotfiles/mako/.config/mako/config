@@ -1,8 +1,9 @@
-background-color=#000000cc
+anchor=top-center
+background-color=#220011dd
 border-color=#b4b4b4ff
 border-size=1
-default-timeout=3000
-font=Iosevka Nerd Font 10
+default-timeout=5000
+font=Iosevka Nerd Font 12
 format=%a\n<b>%s</b>\n%b
 progress-color=#a53841ee
 text-color=#ffffffff
