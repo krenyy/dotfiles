@@ -213,7 +213,6 @@ spawn-at-startup "swayidle" "-w"
 spawn-at-startup "gammastep"
 spawn-at-startup "swaybg" "-i" ".dotfiles/.wallpapers/wallhaven-2ero7g.jpg"
 spawn-at-startup "waybar"
-spawn-at-startup "mako"
 spawn-at-startup "foot" "--server"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
