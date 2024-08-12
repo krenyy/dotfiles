@@ -3,6 +3,7 @@
   c = commit
   ca = c --amend
   cm = c -m
+  co = checkout
   d = diff
   ds = diff --staged
   l = log
