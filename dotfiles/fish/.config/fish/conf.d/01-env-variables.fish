@@ -13,7 +13,7 @@ set -x TERMINAL foot
 
 # use `bat` as `man` pager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x MANROFFOPT "-c"
+set -x MANROFFOPT -c
 
 # `delta` mouse scrolling
 set -x DELTA_PAGER "less -R --mouse"
