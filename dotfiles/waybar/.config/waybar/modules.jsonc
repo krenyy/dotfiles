@@ -51,6 +51,7 @@
     "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
   },
   "bluetooth": {
+    "format-connected-battery": " connected ({device_battery_percentage}%)",
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
