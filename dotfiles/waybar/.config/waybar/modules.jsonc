@@ -58,7 +58,7 @@
     "on-click": "footclient bluetuith",
   },
   "custom/power_draw": {
-    "interval": 1,
+    "interval": 4,
     "exec": "$HOME/.config/waybar/power_draw.rs",
     "format": "󱐌{} W  ",
   },
