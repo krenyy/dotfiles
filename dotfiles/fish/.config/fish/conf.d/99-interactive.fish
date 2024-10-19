@@ -9,6 +9,8 @@ if status is-interactive
     alias rs='rsync -ahP --info=progress2'
     alias yes='no'
 
+    alias tb='ncat termbin.com 9999'
+
     set -x NMAP_PRIVILEGED
 
     gpgconf --launch gpg-agent
