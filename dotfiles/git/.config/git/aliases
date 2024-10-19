@@ -12,3 +12,4 @@
   r = restore
   rs = r --staged
   s = status --short --branch
+  sh = show --ext-diff

@@ -20,10 +20,16 @@
 	line-numbers = true
 [diff]
 	colorMoved = default
+	external = difft
+	tool = difftastic
 [diff "xz"]
 	textconv = xzcat
+[difftool]
+	prompt = false
 [merge]
 	conflictstyle = diff3
+[pager]
+	difftool = true
 [tag]
   gpgsign = true
 [include]
