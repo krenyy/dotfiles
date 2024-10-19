@@ -55,7 +55,7 @@
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
-    "on-click": "footclient bluetoothctl",
+    "on-click": "footclient bluetuith",
   },
   "custom/power_draw": {
     "interval": 1,
