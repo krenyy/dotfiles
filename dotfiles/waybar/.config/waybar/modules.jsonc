@@ -63,8 +63,7 @@
     "format": "󱐌{} W  ",
   },
   "custom/power_profile": {
-    "interval": 1,
-    "exec": "cat /sys/bus/platform/devices/tuxedo_platform_profile/platform_profile",
+    "exec": "$HOME/.config/waybar/watch_file.sh /sys/bus/platform/devices/tuxedo_platform_profile/platform_profile",
     "format": "󰓅 {}",
   },
   "idle_inhibitor": {
