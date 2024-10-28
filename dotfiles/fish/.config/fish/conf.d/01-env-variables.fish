@@ -31,6 +31,7 @@ set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -x CUDA_CACHE_PATH "$XDG_CACHE_HOME/nv"
 set -x DOT_SAGE "$XDG_CONFIG_HOME/sage"
 set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
+set -x GOPATH "$XDG_DATA_HOME/go"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 set -x IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
 set -x LESSHISTFILE -
