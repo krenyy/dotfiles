@@ -1,7 +1,7 @@
 [user]
 	name = Martin Kröner
 	email = work@kroner.dev
-	signingkey = F0A6B323F40205E8C504C6E11ADA1E881060610E
+	signingkey = ~/.ssh/id_ed25519
 [core]
 	autocrlf = input
 	pager = delta
@@ -11,6 +11,8 @@
 	diffFilter = delta --color-only
 [credential]
 	helper = libsecret
+[gpg]
+	format = ssh
 [color]
 	ui = auto
 [commit]
