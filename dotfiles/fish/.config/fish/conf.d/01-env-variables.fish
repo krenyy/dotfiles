@@ -63,10 +63,6 @@ prepend_path "$HOME/.local/share/rustup/toolchains/nightly-x86_64-unknown-linux-
 prepend_path "$HOME/.local/bin"
 prepend_path "$DOTFILES/.scripts"
 
-# gpg-agent as ssh-agent
-set -e SSH_AGENT_PID
-set -x SSH_AUTH_SOCK "$(gpgconf --list-dirs agent-ssh-socket)"
-
 # firefox with wayland
 set -x MOZ_ENABLE_WAYLAND 1
 
