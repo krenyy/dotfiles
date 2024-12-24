@@ -34,6 +34,7 @@ set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set -x GOPATH "$XDG_DATA_HOME/go"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 set -x IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+set -x JUPYTER_CONFIG_DIR "$XDG_CONFIG_HOME/jupyter"
 set -x LESSHISTFILE -
 set -x MATHEMATICA_USERBASE "$XDG_CONFIG_HOME/mathematica"
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
@@ -42,7 +43,9 @@ set -x NPM_CONFIG_USERCONFIG "$XDG_DATA_HOME/npm/config"
 set -x NUGET_PACKAGES "$XDG_CACHE_HOME/NuGetPackages"
 set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/password-store"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+set -x TS3_CONFIG_DIR "$XDG_CONFIG_HOME/ts3client"
 set -x XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
+set -x _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
 # update PATH
 function prepend_path
