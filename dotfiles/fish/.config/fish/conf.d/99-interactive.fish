@@ -11,6 +11,10 @@ if status is-interactive
 
     alias tb='ncat termbin.com 9999'
 
+    function nth
+        sed "$argv[1]""q;d"
+    end
+
     set -x NMAP_PRIVILEGED
 
     gpgconf --launch gpg-agent
