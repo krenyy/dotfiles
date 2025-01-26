@@ -1,2 +1,0 @@
-timeout 180 'swaylock'
-before-sleep 'playerctl pause; swaylock'
