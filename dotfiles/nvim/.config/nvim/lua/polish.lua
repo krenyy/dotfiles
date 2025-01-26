@@ -27,7 +27,7 @@ if not lsp_configs.rscls then
     default_config = {
       cmd = { "rscls" },
       filetypes = { "rust-script" },
-      root_dir = function(fname) return require("lspconfig").util.path.dirname(fname) end,
+      root_dir = function(fname) return vim.fs.dirname(fname) end,
     },
     docs = {
       description = [[
