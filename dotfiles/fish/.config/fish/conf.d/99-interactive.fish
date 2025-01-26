@@ -17,8 +17,6 @@ if status is-interactive
 
     set -x NMAP_PRIVILEGED
 
-    gpgconf --launch gpg-agent
-
     if command -v pazi &>/dev/null
         eval "$(pazi init fish)"
     end
