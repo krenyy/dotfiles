@@ -15,6 +15,14 @@ if status is-interactive
         sed "$argv[1]""q;d"
     end
 
+    function urldec
+        python -c "import sys, urllib.parse as ul; [sys.stdout.write(ul.unquote_plus(l)) for l in sys.stdin]"
+    end
+
+    function urlenc
+        python -c "import sys, urllib.parse as ul; [sys.stdout.write(ul.quote_plus(l)) for l in sys.stdin]"
+    end
+
     set -x NMAP_PRIVILEGED
 
     if command -v pazi &>/dev/null
