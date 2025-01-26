@@ -23,6 +23,15 @@ if status is-interactive
         python -c "import sys, urllib.parse as ul; [sys.stdout.write(ul.quote_plus(l)) for l in sys.stdin]"
     end
 
+    function git-cleanup-branches
+        git fetch -p &&
+            git branch -r |
+                awk '{print $1}' |
+                grep -Evf /dev/fd/0 (git branch -vv | grep -F origin | psub) |
+                awk '{print $1}' |
+                xargs git branch -d
+    end
+
     set -x NMAP_PRIVILEGED
 
     if command -v pazi &>/dev/null
