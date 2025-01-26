@@ -312,7 +312,7 @@ binds {
     Mod+Return { spawn "footclient"; }
     Mod+Space { spawn "rofi" "-disable-history" "-show" "run"; }
     Mod+W { spawn "firefox-nightly"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Super+Alt+L { spawn "hyprlock"; }
 
     // You can also use a shell:
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
