@@ -25,7 +25,7 @@ return {
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.typescript-deno" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.wgsl" },
   { import = "astrocommunity.pack.yaml" },
